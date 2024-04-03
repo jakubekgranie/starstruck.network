@@ -1,0 +1,31 @@
+.header{
+    height: 80vh;
+    background-image: linear-gradient(to right top, #f1fffa, #eefaee, #f1f3e1, #f7ead6, #fde1d2, #fedecb, #ffdbc4, #ffd9bc, #efe1ae, #cfecb0, #a0f5c7, #5ffbf1);
+    padding: 0 12vw;
+}
+
+.header-subsection-main{
+    font-family: 'Space Mono';
+    flex-direction: column;
+}
+.header-h1{
+    font-size: 3.8vw;
+    /*background-color: #DFEBD1;*/
+    font-weight: 400;
+}
+.header-p{
+    font-size: 1.05vw;
+}
+
+.fx{
+    display: flex;
+}
+.ai-c{
+    align-items: center;
+}
+.jc-spb{
+    justify-content: space-between;
+}
+.mg-0{
+    margin: 0;
+}
