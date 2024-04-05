@@ -1,12 +1,25 @@
 .header{
-    height: 80vh;
-    background-image: linear-gradient(to right top, #f1fffa, #eefaee, #f1f3e1, #f7ead6, #fde1d2, #fedecb, #ffdbc4, #ffd9bc, #efe1ae, #cfecb0, #a0f5c7, #5ffbf1);
-    padding: 0 12vw;
+    height: 100vh;
+    background-image: linear-gradient(30deg, #f1fffa, #eefaee, #f1f3e1, #f7ead6, #fde1d2, #fedecb, #ffdbc4, #ffd9bc, #efe1ae, #cfecb0, #a0f5c7, #5ffbf1);
+    /*margin-bottom: 50vh; HIDDEN*/
+}
+.about-me{
+    height: 82.5vh;
+    padding-top: 12.5vh;
+    position: absolute;
+    top: 90vh;
+    background-image: linear-gradient(180deg,transparent, #f0fcec 10vh, #e6fce5, #d9fde1, #cafede, #b9ffde);
+}
+.default-horizontal-padding{
+    padding-left: 14vw;
+    padding-right: 14vw;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.header-subsection-main{
+.ff-space-mono{
     font-family: 'Space Mono';
-    flex-direction: column;
+    font-weight: lighter;
 }
 .header-h1{
     font-size: 3.8vw;
@@ -15,6 +28,12 @@
 }
 .header-p{
     font-size: 1.05vw;
+    max-width: 30vw;
+    word-break: break-all;
+}
+.header-logo{
+    width: auto;
+    height: 11vw;
 }
 
 .fx{
@@ -26,6 +45,13 @@
 .jc-spb{
     justify-content: space-between;
 }
+.jc-c{
+    justify-content: center;
+}
 .mg-0{
     margin: 0;
+}
+
+.default-h1{
+    font-size: 2vw;
 }
