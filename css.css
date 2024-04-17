@@ -10,8 +10,7 @@ h1{
     height: 100vh;
 }
 .about-me{
-    height: 75.5vh;
-    width: 100%;
+    min-height: 75.5vh;
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0px 0px 2.5vw 2.5vw white inset;
     padding: 3vw 3.5vw;
@@ -20,6 +19,7 @@ h1{
     backdrop-filter: blur(1vw);
     border-radius: 1.5vw;
     margin-bottom: 0.63vw;
+    flex-direction: column;
     /*background-image: linear-gradient(180deg,transparent, #f0fcec 10vh, #e6fce5, #d9fde1, #cafede, #b9ffde);*/
 }
 .default-horizontal-padding{
@@ -70,11 +70,24 @@ h1{
 .bs-bb{
     box-sizing: border-box;
 }
+.h-fc{
+    height: fit-content;
+}
+.w-100p{
+    width: 100%;
+}
 
 .default-h1{
     font-size: 2vw;
     font-weight: bold;
-    height: fit-content;
+}
+.default-h2{
+    font-size: 1.25vw;
+    margin-bottom: 0.75vw;
+}
+.default-p{
+    font-size: 1.05vw;
+    margin-left: 0.18vw;
 }
 .grd{
     background-clip: text;
@@ -89,4 +102,19 @@ h1{
 }
 .grd-about-me{
     background-image: radial-gradient(circle, #0000ff, #0041ff, #0060ff, #0079ff, #3b90ff);
+}
+.grd-about-me-line{
+    background-image: linear-gradient(to left, #0000ff, #0048ff, #006bff, #1188ff, #5ba2ff);
+}
+
+.mg-l-h1-complementary{
+    margin-left: 1vw;
+}
+.h1-complementary-line{
+    width: 17vw;
+    border-radius: 0.15vw;
+    height: 0.3vw;
+}
+.mg-title{
+    margin-bottom: 3.05vw;
 }

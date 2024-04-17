@@ -1,3 +1,11 @@
+/*
+    IDEA BOARD
+    - Use regex and await for delayed but responsive animation initialization;
+    - Subtext init (lor[r]-esque);
+    - parallax-bound imagery;
+    - emphasize subs;
+*/
+
 window.onload = () => {
     function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further.
         let elementText = [], elementTextReady = "";
