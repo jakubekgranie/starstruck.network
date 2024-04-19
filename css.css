@@ -10,7 +10,6 @@ h1{
     height: 100vh;
 }
 .about-me{
-    min-height: 75.5vh;
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0px 0px 2.5vw 2.5vw white inset;
     padding: 3vw 3.5vw;
@@ -70,7 +69,8 @@ h1{
 .bs-bb{
     box-sizing: border-box;
 }
-.h-fc{
+.fc{
+    width: fit-content;
     height: fit-content;
 }
 .w-100p{
@@ -86,7 +86,8 @@ h1{
     margin-bottom: 0.75vw;
 }
 .default-p{
-    font-size: 1.05vw;
+    width: 80%;
+    font-size: 1.075vw;
     margin-left: 0.18vw;
 }
 .grd{
@@ -110,6 +111,10 @@ h1{
 .mg-l-h1-complementary{
     margin-left: 1vw;
 }
+.mg-b-p-about-me{
+    margin-bottom: 3vw;
+}
+
 .h1-complementary-line{
     width: 17vw;
     border-radius: 0.15vw;
@@ -117,4 +122,10 @@ h1{
 }
 .mg-title{
     margin-bottom: 3.05vw;
+}
+.mg-l-auto{
+    margin-left: auto;
+}
+.txt-a-r{
+    text-align: right;
 }
