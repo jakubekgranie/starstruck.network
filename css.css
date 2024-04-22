@@ -126,6 +126,12 @@ h1{
 .mg-l-auto{
     margin-left: auto;
 }
+
 .txt-a-r{
     text-align: right;
+}
+
+.about-me-togepi{
+    image-rendering: pixelated;
+    height: 100%;
 }
