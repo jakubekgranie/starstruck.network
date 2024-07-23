@@ -1,137 +1,115 @@
 body{
-    background-image: linear-gradient(30deg, #f1fffa, #eefaee, #f1f3e1, #f7ead6, #fde1d2, #fedecb, #ffdbc4, #ffd9bc, #efe1ae, #cfecb0, #a0f5c7, #5ffbf1);
-    background-attachment: fixed;
+    background-image:linear-gradient(30deg,#f1fffa,#eefaee,#f1f3e1,#f7ead6,#fde1d2,#fedecb,#ffdbc4,#ffd9bc,#efe1ae,#cfecb0,#a0f5c7,#5ffbf1);
+    background-attachment:fixed
 }
 h1{
-    margin: 0;
+    margin:0
 }
-
 .header{
-    height: 100vh;
-}
-.about-me{
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 0px 0px 2.5vw 2.5vw white inset;
-    padding: 3vw 3.5vw;
-    outline: 0.3vw solid #fff;
-    outline-offset: 0.33vw;
-    backdrop-filter: blur(1vw);
-    border-radius: 1.5vw;
-    margin-bottom: 0.63vw;
-    flex-direction: column;
-    /*background-image: linear-gradient(180deg,transparent, #f0fcec 10vh, #e6fce5, #d9fde1, #cafede, #b9ffde);*/
+    height:100vh
 }
 .default-horizontal-padding{
-    padding-left: 14vw;
-    padding-right: 14vw;
+    padding-left:14vw;
+    padding-right:14vw
 }
-.default-top-padding{
-    padding-top: 7.5vh;
-}
-
 .ff-space-mono{
-    font-family: 'Space Mono';
-    font-weight: lighter;
+    font-family:'Space Mono';
+    font-weight:lighter
 }
 .header-h1{
-    font-size: 3.8vw;
-    /*background-color: #DFEBD1;*/
-    font-weight: 400;
+    font-size:3.8vw;
+    font-weight:400
 }
 .header-p{
-    font-size: 1.05vw;
-    max-width: 30vw;
-    word-break: break-all;
+    font-size:1.05vw;
+    word-break:break-all
+}
+.hp-mw{
+    max-width:30vw;
 }
 .header-logo{
-    width: auto;
-    height: 11vw;
+    width:auto;
+    height:11vw
 }
-
 .fx{
-    display: flex;
+    display:flex
 }
-.ai-c{
-    align-items: center;
+.-ai-c{
+    align-items:center
 }
-.jc-spb{
-    justify-content: space-between;
+.-jc-spb{
+    justify-content:space-between
 }
-.jc-c{
-    justify-content: center;
+.-jc-c{
+    justify-content:center
 }
 .mg-0{
-    margin: 0;
+    margin:0
 }
 .dp-none{
-    display: none;
+    display:none
 }
 .bs-bb{
-    box-sizing: border-box;
+    box-sizing:border-box
 }
-.fc{
-    width: fit-content;
-    height: fit-content;
-}
-.w-100p{
-    width: 100%;
-}
-
 .default-h1{
-    font-size: 2vw;
-    font-weight: bold;
+    font-size:2vw;
+    font-weight:700
 }
 .default-h2{
-    font-size: 1.25vw;
-    margin-bottom: 0.75vw;
+    font-size:1.25vw;
+    margin-bottom:.75vw
 }
 .default-p{
-    width: 80%;
-    font-size: 1.075vw;
-    margin-left: 0.18vw;
-}
-.grd{
-    background-clip: text;
-
-    -webkit-background-clip: text;
-    -o-background-clip: text;
-    -moz-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-    -o-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-}
-.grd-about-me{
-    background-image: radial-gradient(circle, #0000ff, #0041ff, #0060ff, #0079ff, #3b90ff);
-}
-.grd-about-me-line{
-    background-image: linear-gradient(to left, #0000ff, #0048ff, #006bff, #1188ff, #5ba2ff);
-}
-
-.mg-l-h1-complementary{
-    margin-left: 1vw;
-}
-.mg-b-p-about-me{
-    margin-bottom: 3vw;
-}
-
-.h1-complementary-line{
-    width: 17vw;
-    border-radius: 0.15vw;
-    height: 0.3vw;
+    width:80%;
+    font-size:1.075vw;
+    margin-left:.18vw
 }
 .mg-title{
-    margin-bottom: 3.05vw;
-}
-.mg-l-auto{
-    margin-left: auto;
+    margin-bottom:3.05vw
 }
 
-.txt-a-r{
-    text-align: right;
+.update-sticky{
+    position: fixed;
+    left: 2.7vw;
+    color: white;
+    font-family: Zain;
+    text-decoration: none;
 }
-
-.about-me-togepi{
-    image-rendering: pixelated;
-    height: 100%;
+.t-p2{
+    transition: 0.2s all ease-in-out;
+}
+.us-fg{
+    width: 12vw;
+    height: 2.8125vw;
+    top: 2vw;
+    background-image: linear-gradient(to right bottom, #363636, #4f6373, #4e9aa2, #79d1ad, #e2ffa1);
+    z-index: 3;
+    padding: 1vw;
+    border-radius: 16px;
+    will-change: contents;
+    overflow: hidden;
+}
+.us-fg-hover{
+    height: 7.42270833333vw; /*change every update*/
+}
+.us-bg{
+    width: 14vw;
+    height: 1.8vw;
+    background-image: linear-gradient(to right, #507777, #8fa77f);
+    z-index: 2;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+.us-bg-hover{
+    margin-top: 4.589375vw;
+}
+.br{
+    border: 0;
+}
+.-us_init{
+    margin-bottom: .6vw;
+}
+.us-ch-p{
+    font-size: .90vw;
 }

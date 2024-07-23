@@ -5,15 +5,15 @@
     - parallax-bound imagery;
     - emphasize subs;
 */
-
 window.onload = () => {
+    document.getElementById("us2").style.top = document.getElementById("us").clientHeight + window.innerHeight * 0.02 + "px";
     function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further.
         let elementText = [], elementTextReady = "";
-        if(typeof elementTextP === undefined || elementTextP == null || elementTextP.length != slogan.length){
+        /*if(typeof elementTextP === undefined || elementTextP == null || elementTextP.length != slogan.length){
             elementTextP = "";
             for(let j = 0; j < slogan.length; j++)
                 elementTextP += "_";
-        }
+        } mediocre safeguard*/
         for(let j = 0; j < elementTextP.length; j++) // deserialize
             elementText.push(elementTextP[j]); 
         for(j = i; j < elementTextP.length; j++){
@@ -37,15 +37,6 @@ window.onload = () => {
             }
     }
 
-    let observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                randomizeAddress(document.getElementById("AboutMeH1"), "About_Me", 30);
-                observer.disconnect();   
-            }
-        })
-    }, {threshold: 0.1});
-    observer.observe(document.getElementById("main"));
 
     const ids = [], functions = [];
     function callback(entries, observer, index){
@@ -67,4 +58,9 @@ window.onload = () => {
         }, standardIO);
         observer.observe(document.getElementById(value));
     });
+}
+
+function subUSAnimation(){
+    document.getElementById("us").classList.toggle("us-fg-hover");
+    document.getElementById("us2").classList.toggle("us-bg-hover");
 }
