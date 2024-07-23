@@ -77,7 +77,7 @@ h1{
     text-decoration: none;
 }
 .t-p2{
-    transition: 0.2s all ease-in-out;
+    transition: 0.125s all ease-in-out;
 }
 .us-fg{
     width: 12vw;
@@ -87,7 +87,6 @@ h1{
     z-index: 3;
     padding: 1vw;
     border-radius: 16px;
-    will-change: contents;
     overflow: hidden;
 }
 .us-fg-hover{

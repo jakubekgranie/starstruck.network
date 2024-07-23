@@ -58,9 +58,16 @@ window.onload = () => {
         }, standardIO);
         observer.observe(document.getElementById(value));
     });
-}
-
-function subUSAnimation(){
-    document.getElementById("us").classList.toggle("us-fg-hover");
-    document.getElementById("us2").classList.toggle("us-bg-hover");
+    function subUSAnimation(mode = false){ //used instead of toggles instead due to load errors
+        if(mode){
+            document.getElementById("us").classList.add("us-fg-hover");
+            document.getElementById("us2").classList.add("us-bg-hover");
+        }
+        else{
+            document.getElementById("us").classList.remove("us-fg-hover");
+            document.getElementById("us2").classList.remove("us-bg-hover");
+        }
+    }
+    document.getElementById("us-main").addEventListener("mouseover", () => {subUSAnimation(true)});
+    document.getElementById("us-main").addEventListener("mouseout", () => {subUSAnimation()});
 }
