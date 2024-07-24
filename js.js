@@ -5,8 +5,11 @@
     - parallax-bound imagery;
     - emphasize subs;
 */
+let vw = window.innerWidth * 0.01, vh = window.innerHeight * 0.01;
 window.onload = () => {
-    document.getElementById("us2").style.top = document.getElementById("us").clientHeight + window.innerHeight * 0.02 + "px";
+    const us = document.getElementById("us"), us2 = document.getElementById("us2"), usHeight = us.clientHeight, us2Margin = usHeight - 5 * vw;
+    us.style.height = "2.8125vw";
+    us2.style.top = us.clientHeight + window.innerWidth * 0.01125 + "px"; // resize breaks
     function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further.
         let elementText = [], elementTextReady = "";
         /*if(typeof elementTextP === undefined || elementTextP == null || elementTextP.length != slogan.length){
@@ -37,22 +40,33 @@ window.onload = () => {
             }
     }
 
-
-    const ids = [], functions = [];
+    const ids = ["about-me"], functions = [() => {console.warn("")}], params = [["-a", "-nd"]], IOs = [false ,{root: null, rootMargin: "0px",threshold: 0.75}]; //after, nondisc;
     function callback(entries, observer, index){
         entries.forEach(entry => {
             if(entry.isIntersecting){
                 functions[index]();
-                observer.disconnect();   
+                let d = true;
+                params[index].forEach(param => {
+                    if(param == "-nd")
+                        d = false;
+                });
+                if(d)
+                    observer.disconnect();
             }
+            params[index].forEach(param => {
+                if(param == "-a" && !entry.isIntersecting)
+                    functions[index]();
+            });
         });
     }
-    let standardIO = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.35
-    }
     ids.forEach((value, index) => {
+        let standardIO = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.35
+        };
+        if(IOs[index])
+            standardIO = IOs[index];
         let observer = new IntersectionObserver((entries, observer) => {
             callback(entries, observer, index)
         }, standardIO);
@@ -60,14 +74,35 @@ window.onload = () => {
     });
     function subUSAnimation(mode = false){ //used instead of toggles instead due to load errors
         if(mode){
-            document.getElementById("us").classList.add("us-fg-hover");
-            document.getElementById("us2").classList.add("us-bg-hover");
+            us.style.height = usHeight - 2 * vw + "px";
+            us2.style.marginTop = us2Margin + "px";
         }
         else{
-            document.getElementById("us").classList.remove("us-fg-hover");
-            document.getElementById("us2").classList.remove("us-bg-hover");
+            us.style.height = "2.8125vw";
+            us2.style.marginTop = null;
         }
     }
     document.getElementById("us-main").addEventListener("mouseover", () => {subUSAnimation(true)});
     document.getElementById("us-main").addEventListener("mouseout", () => {subUSAnimation()});
+}
+function scrollListener(reinit = false){
+    if(reinit){
+        vw = window.innerWidth * 0.01;
+        vh = window.innerHeight * 0.01;
+    }
+    const scr = window.scrollY, res = 225 - 125 * scr / (80 * vh);
+    if(scr > -1 && res >= 100)
+        document.body.style.backgroundSize = res + "%";
+    else if(res < 100)
+        document.body.style.backgroundSize = "100%";
+}
+document.addEventListener("scroll", () => {scrollListener()});
+window.onresize = () => {
+    const us = document.getElementById("us"), us2 = document.getElementById("us2");
+    us.classList.toggle("t-p2");
+    us2.classList.toggle("t-p2");
+    us2.style.top = us.clientHeight + window.innerWidth * 0.01125 + "px";
+    us.classList.add("t-p2");
+    us2.classList.add("t-p2");
+    scrollListener(true);
 }
