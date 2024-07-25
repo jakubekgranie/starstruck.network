@@ -109,11 +109,14 @@ h1{
 }
 .br-us_init{
     border: 0;
-    margin-bottom: .6vw;
+    margin-bottom: .7vw;
 }
 .us-ch-p{
     font-size: .90vw;
 }
 .about-me{
     height: 80vh;
+}
+.op-0{
+    opacity: 0;
 }

@@ -7,8 +7,11 @@
 */
 let vw = window.innerWidth * 0.01, vh = window.innerHeight * 0.01;
 window.onload = () => {
-    const us = document.getElementById("us"), us2 = document.getElementById("us2"), usHeight = us.clientHeight, us2Margin = usHeight - 5 * vw;
-    us.style.height = "2.8125vw";
+    const us = document.getElementById("us"), us2 = document.getElementById("us2"), usHeight = us.clientHeight / vw - 2; // why does html generate such abhorrent spaces on resize?
+    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>Automated this element.";
+    const usExtendedHeight = us.clientHeight / vw - 2, us2Margin = usExtendedHeight - usHeight;
+    console.log(usHeight * vw + ' ' + usExtendedHeight * vw);
+    us.style.height = usHeight + "vw";
     us2.style.top = us.clientHeight + window.innerWidth * 0.01125 + "px"; // resize breaks
     function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further.
         let elementText = [], elementTextReady = "";
@@ -72,13 +75,13 @@ window.onload = () => {
         }, standardIO);
         observer.observe(document.getElementById(value));
     });
-    function subUSAnimation(mode = false){ //used instead of toggles instead due to load errors
+    function subUSAnimation(mode = false){ 
         if(mode){
-            us.style.height = usHeight - 2 * vw + "px";
-            us2.style.marginTop = us2Margin + "px";
+            us.style.height = usExtendedHeight + "vw";
+            us2.style.marginTop = us2Margin + "vw";
         }
         else{
-            us.style.height = "2.8125vw";
+            us.style.height =  usHeight + "vw";
             us2.style.marginTop = null;
         }
     }
