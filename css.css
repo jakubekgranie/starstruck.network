@@ -3,6 +3,9 @@ body{
     background-attachment: fixed;
     background-position: center;
 }
+.pos-rel{
+    position: relative;
+}
 h1{
     margin:0
 }
@@ -10,8 +13,7 @@ h1{
     height:100vh
 }
 .default-horizontal-padding{
-    padding-left:14vw;
-    padding-right:14vw
+    padding:0 15.5vw;
 }
 .ff-space-mono{
     font-family:'Space Mono';
@@ -71,7 +73,7 @@ h1{
 }
 
 .update-sticky{
-    position: fixed;
+    
     left: 2.7vw;
     color: white;
     font-family: Zain;
@@ -100,9 +102,11 @@ h1{
     width: 14vw;
     height: 1.8vw;
     background-image: linear-gradient(to right, #507777, #8fa77f);
-    z-index: 2;
     border-bottom-left-radius: 0.81632653061vw;
     border-bottom-right-radius: 0.81632653061vw;
+}
+.z-2{
+    z-index: 2;
 }
 .us-bg-hover{
     margin-top: 4.589375vw;
@@ -119,4 +123,50 @@ h1{
 }
 .op-0{
     opacity: 0;
+}
+.pos-fxd{
+    position: fixed;
+}
+.nav{
+    right: 0;
+    flex-direction: column;
+    margin-right: 1.5vw;
+}
+.centering-y{
+    top: 50%;
+    transform: translateY(-50%);
+}
+.button{
+    background: #F5F0DC;
+    width: 3vw;
+    height: 3vw;
+    box-shadow: inset 0 0 1.2vw 0.4vw #fff5cb;
+    cursor: pointer;
+}
+.br-50p{
+    border-radius: 50%;
+}
+.button:not(:last-child){
+    margin-bottom: 1vw;
+}
+.b-icon{
+    width: 1.3vw;
+    height: 1.3vw;
+}
+@keyframes indicator{
+    50%{
+        background-position: right center;
+    }
+}
+#b-indicator{
+    background-image: radial-gradient(circle, #809bce, #66bae0, #69d6df, #94edd1, #d3ffc3);
+    background-size: 300%;
+    width: .6vw;
+    height: .6vw;
+    position: absolute;
+    background-position: left center;
+    margin-right: 6vw;
+    box-shadow: 0 0 0.65vw 0.25vw rgba(199, 199, 199, 0.75);
+    animation: indicator 3s infinite ease-in-out;
+    transition: all .2s ease-in-out;
 }

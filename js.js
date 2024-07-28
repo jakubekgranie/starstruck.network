@@ -15,17 +15,17 @@
 let vw = window.innerWidth * 0.01, vh = window.innerHeight * 0.01;
 window.onload = () => {
     const us = document.getElementById("us"), us2 = document.getElementById("us2"), usHeight = us.clientHeight / vw - 2; // why does html generate such abhorrent spaces on resize?
-    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Added comments to js,<br>- Optimized js,<br>- Bug fixes.<br><br>The associated update was termed '01-02-07' due to an error. The target is the second instance.";
+    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Added the navigation bar,<br>- Optimized js,<br>- Added new keywords,<br>- Minor description changes.";
     const usExtendedHeight = us.clientHeight / vw - 2, us2Margin = usExtendedHeight - usHeight;
     us.style.height = usHeight + "vw";
-    us2.style.top = us.clientHeight + window.innerWidth * 0.01125 + "px"; // resize breaks
-    function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further. legacy. the core component of randomizeAddress().
+    us2.style.top = us.clientHeight / vw + 1.125 + "vw"; // resize breaks
+    /*function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further. legacy. the core component of randomizeAddress().
         let elementText = [], elementTextReady = "";
-        /*if(typeof elementTextP === undefined || elementTextP == null || elementTextP.length != slogan.length){
+        if(typeof elementTextP === undefined || elementTextP == null || elementTextP.length != slogan.length){
             elementTextP = "";
             for(let j = 0; j < slogan.length; j++)
                 elementTextP += "_";
-        } mediocre safeguard*/
+        } mediocre safeguard
         for(let j = 0; j < elementTextP.length; j++) // deserialize
             elementText.push(elementTextP[j]); 
         for(j = i; j < elementTextP.length; j++){
@@ -47,8 +47,8 @@ window.onload = () => {
                     elementText.textContent = elementTextReady;
                 }, waitTime / 3 * j * (i + 1) + 20);
             }
-    }
-    const ids = ["about-me"], functions = [() => {console.warn("This is a test trigger.")}], params = [["-a", "-nd"]], IOs = [false ,{root: null, rootMargin: "0px",threshold: 0.75}]; //after, nondisc;
+    }*/
+    const ids = [], functions = [() => {}], params = [["-a", "-nd"]], IOs = []; //after, nondisc;
     function callback(entries, observer, index){
         entries.forEach(entry => {
             let data = [false, false]; 
@@ -96,25 +96,28 @@ window.onload = () => {
     }
     document.getElementById("us-main").addEventListener("mouseover", () => {subUSAnimation(true)});
     document.getElementById("us-main").addEventListener("mouseout", () => {subUSAnimation()});
-}
-function scrollListener(reinit = false){
-    if(reinit){
-        vw = window.innerWidth * 0.01;
-        vh = window.innerHeight * 0.01;
+    function parseButtons(index){
+        document.getElementById("b-indicator").style.marginTop = index * 4 + "vw";
     }
+    const buttons = ["b-home", "b-about", "b-skills", "b-projects", "b-site"];
+    for(let i = 0; i < 5; i++)
+        document.getElementById(buttons[i]).addEventListener("click", () => {parseButtons(i)}); 
+}
+/*legacy function scrollListener(){
+    vw = window.innerWidth * 0.01;
+    vh = window.innerHeight * 0.01;
     const scr = window.scrollY, res = 225 - 125 * scr / (80 * vh);
     if(scr > -1 && res >= 100)
         document.body.style.backgroundSize = res + "%";
     else if(res < 100)
-        document.body.style.backgroundSize = "100%";
-}
+        document.body.style.backgroundSize = "100%"; 
+}*/
 document.addEventListener("scroll", () => {scrollListener()});
 window.onresize = () => {
-    const us = document.getElementById("us"), us2 = document.getElementById("us2");
-    us.classList.toggle("t-p2");
-    us2.classList.toggle("t-p2");
-    us2.style.top = us.clientHeight + window.innerWidth * 0.01125 + "px";
-    us.classList.add("t-p2");
-    us2.classList.add("t-p2");
-    scrollListener(true);
+    for(let i = 0; i < 1; i++){
+        document.getElementById("us").classList.toggle("t-p2");
+        document.getElementById("us2").classList.toggle("t-p2");
+    }
+    vw = window.innerWidth * 0.01;
+    vh = window.innerHeight * 0.01;
 }
