@@ -15,10 +15,15 @@
 let vw = window.innerWidth * 0.01, vh = window.innerHeight * 0.01;
 window.onload = () => {
     const us = document.getElementById("us"), us2 = document.getElementById("us2"), usHeight = us.clientHeight / vw - 2; // why does html generate such abhorrent spaces on resize?
-    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Added the navigation bar,<br>- Optimized js,<br>- Added new keywords,<br>- Minor description changes.";
-    const usExtendedHeight = us.clientHeight / vw - 2, us2Margin = usExtendedHeight - usHeight;
+    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Added animations,<br>- Started section work,<br>- Optimized code.<br><br>==== KNOWN BUGS<br>- Unexpected line separation distance causes this element's dimensions to be inadequate when the viewport becomes bigger than initially. Fix en route.";
+    const usExtendedHeight = us.clientHeight / vw - 2, us2Margin = usExtendedHeight - usHeight + "vw";
     us.style.height = usHeight + "vw";
-    us2.style.top = us.clientHeight / vw + 1.125 + "vw"; // resize breaks
+    us2.style.top = us.clientHeight / vw - .750 +  "vw"; // resize breaks
+    setInterval(() => {document.getElementById("h-writer").classList.toggle("op-0")}, 1000);
+    const title = "// SHATTERWARES";
+    for(let i = 0; i < title.length; i++){
+        setTimeout(() => {document.getElementById("h-contents").innerHTML += title[i]}, 450 + 35 * i - Math.pow(1.1, i));
+    }
     /*function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further. legacy. the core component of randomizeAddress().
         let elementText = [], elementTextReady = "";
         if(typeof elementTextP === undefined || elementTextP == null || elementTextP.length != slogan.length){
@@ -87,7 +92,7 @@ window.onload = () => {
     function subUSAnimation(mode = false){ 
         if(mode){
             us.style.height = usExtendedHeight + "vw";
-            us2.style.marginTop = us2Margin + "vw";
+            us2.style.marginTop = us2Margin;
         }
         else{
             us.style.height =  usHeight + "vw";
@@ -96,12 +101,22 @@ window.onload = () => {
     }
     document.getElementById("us-main").addEventListener("mouseover", () => {subUSAnimation(true)});
     document.getElementById("us-main").addEventListener("mouseout", () => {subUSAnimation()});
-    function parseButtons(index){
-        document.getElementById("b-indicator").style.marginTop = index * 4 + "vw";
-    }
-    const buttons = ["b-home", "b-about", "b-skills", "b-projects", "b-site"];
-    for(let i = 0; i < 5; i++)
-        document.getElementById(buttons[i]).addEventListener("click", () => {parseButtons(i)}); 
+    const buttons = ["b-about", "b-skills", "b-projects", "b-site"], bInd = document.getElementById("b-indicator"), ov = document.getElementById("overlay");
+    let isOverlaid;
+    document.getElementById("b-home").addEventListener("click", () => {
+        bInd.style.marginTop = null;
+        if(isOverlaid){
+            ov.classList.add("ov-off");
+            isOverlaid = false;
+        }
+    }); 
+    for(let i = 0; i < 4; i++)
+        document.getElementById(buttons[i]).addEventListener("click", () => {
+            bInd.style.marginTop = (i + 1) * 4 + "vw"; 
+            if(!isOverlaid) 
+                ov.classList.remove("ov-off"); 
+            isOverlaid = true;
+        }); 
 }
 /*legacy function scrollListener(){
     vw = window.innerWidth * 0.01;
@@ -114,7 +129,7 @@ window.onload = () => {
 }*/
 document.addEventListener("scroll", () => {scrollListener()});
 window.onresize = () => {
-    for(let i = 0; i < 1; i++){
+    for(let i = 0; i < 2; i++){
         document.getElementById("us").classList.toggle("t-p2");
         document.getElementById("us2").classList.toggle("t-p2");
     }

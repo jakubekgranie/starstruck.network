@@ -73,8 +73,6 @@ h1{
 }
 
 .update-sticky{
-    
-    left: 2.7vw;
     color: white;
     font-family: Zain;
     text-decoration: none;
@@ -82,17 +80,17 @@ h1{
 .t-p2{
     transition: all .125s ease-in-out;
 }
-#us-main{
+.us-main{
+    top: 2vw;
+    left: 2.7vw;
     opacity: .9;
 }
-#us-main:hover{
+.us-main:hover{
     opacity: 1;
 }
 .us-fg{
     width: 12vw;
-    top: 2vw;
     background-image: linear-gradient(to right bottom, #363636, #4f6373, #4e9aa2, #79d1ad, #e2ffa1);
-    z-index: 3;
     padding: 1vw;
     border-radius: 0.81632653061vw;
     overflow: hidden;
@@ -140,7 +138,7 @@ h1{
     background: #F5F0DC;
     width: 3vw;
     height: 3vw;
-    box-shadow: inset 0 0 1.2vw 0.4vw #fff5cb;
+    box-shadow: inset 0 0 1.2vw 0.2vw #ffe7d2;
     cursor: pointer;
 }
 .br-50p{
@@ -158,15 +156,37 @@ h1{
         background-position: right center;
     }
 }
-#b-indicator{
+.b-indicator{
     background-image: radial-gradient(circle, #809bce, #66bae0, #69d6df, #94edd1, #d3ffc3);
     background-size: 300%;
     width: .6vw;
     height: .6vw;
-    position: absolute;
     background-position: left center;
     margin-right: 6vw;
     box-shadow: 0 0 0.65vw 0.25vw rgba(199, 199, 199, 0.75);
     animation: indicator 3s infinite ease-in-out;
     transition: all .2s ease-in-out;
+}
+.pos-abs{
+    position: absolute;
+}
+@keyframes blink{
+    50%{
+        opacity: 0;
+    }
+}
+.h-star{
+    animation: blink .25s 2;
+    animation-delay: .1s;
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(16px) opacity(0.95);
+    z-index: 1;
+    top: 0;
+    transition: all .2s ease-in-out;
+}
+.ov-off{
+    backdrop-filter: blur(16px) opacity(0);
 }
