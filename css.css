@@ -1,3 +1,7 @@
+@font-face {
+    font-family: Valorant;
+    src: url("Fonts/val.ttf");
+}
 body{
     background-image: linear-gradient(30deg,#f1fffa,#eefaee,#f1f3e1,#f7ead6,#fde1d2,#fedecb,#ffdbc4,#ffd9bc,#efe1ae,#cfecb0,#a0f5c7,#5ffbf1);
     background-attachment: fixed;
@@ -17,7 +21,7 @@ h1{
 }
 .ff-space-mono{
     font-family:'Space Mono';
-    font-weight:lighter
+    font-weight: lighter
 }
 .header-h1{
     font-size:3.8vw;
@@ -77,25 +81,26 @@ h1{
     font-family: Zain;
     text-decoration: none;
 }
-.t-p2{
+.t-p125{
     transition: all .125s ease-in-out;
 }
 .us-main{
     top: 2vw;
     left: 2.7vw;
-    opacity: .9;
+    opacity: .8;
 }
 .us-main:hover{
     opacity: 1;
 }
 .us-fg{
     width: 12vw;
-    background-image: linear-gradient(to right bottom, #363636, #4f6373, #4e9aa2, #79d1ad, #e2ffa1);
     padding: 1vw;
     border-radius: 0.81632653061vw;
     overflow: hidden;
 }
-
+.us-fg-bg{
+    background-image: linear-gradient(to right bottom, #363636, #4f6373, #4e9aa2, #79d1ad, #e2ffa1);
+}
 .us-bg{
     width: 14vw;
     height: 1.8vw;
@@ -134,15 +139,17 @@ h1{
     top: 50%;
     transform: translateY(-50%);
 }
-.button{
-    background: #F5F0DC;
-    width: 3vw;
-    height: 3vw;
-    box-shadow: inset 0 0 1.2vw 0.2vw #ffe7d2;
-    cursor: pointer;
-}
 .br-50p{
     border-radius: 50%;
+}
+.button{
+    width: 3vw;
+    height: 3vw;
+    cursor: pointer;
+}
+.b-bg{
+    background: #F5F0DC;
+    box-shadow: inset 0 0 1.2vw 0.2vw #ffe7d2;
 }
 .button:not(:last-child){
     margin-bottom: 1vw;
@@ -165,7 +172,6 @@ h1{
     margin-right: 6vw;
     box-shadow: 0 0 0.65vw 0.25vw rgba(199, 199, 199, 0.75);
     animation: indicator 3s infinite ease-in-out;
-    transition: all .2s ease-in-out;
 }
 .pos-abs{
     position: absolute;
@@ -183,10 +189,65 @@ h1{
     width: 100%;
     height: 100%;
     backdrop-filter: blur(16px) opacity(0.95);
+    padding: 12vh 18vw; /*maybe make horizontal padding wider? check after about-me completion.*/
     z-index: 1;
     top: 0;
+}
+.t-p2{
     transition: all .2s ease-in-out;
 }
 .ov-off{
-    backdrop-filter: blur(16px) opacity(0);
+    opacity: 0;
+}
+.ov-describer{
+    top: 1.75vw;
+    left: 2vw;
+    min-height: 6vw;
+    min-width: 6vw;
+    background: url("Visual assets/about-me-star.png") no-repeat;
+    background-position: 30%;
+    background-size: contain;
+}
+.ovd-title{
+    font: 1.75vw Valorant;
+    margin-top: auto;
+    margin-bottom: 0.9vw;
+}
+.gr-flt-about-me{
+    filter: saturate(150%) drop-shadow(3px 3px #ffbcd4);
+}
+.gr-about-me{
+    background-image: linear-gradient(to right bottom, #ff0059, #ff507d, #ff799e, #ff9cbb, #ffbcd4);
+}
+.gr-text{
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color:transparent;
+    -o-text-fill-color: transparent;
+}
+.ov-item-container{
+    border-width: 0.4vw;
+    padding: 4.5px;
+    height: fit-content;
+    border-radius: 7px;
+}
+.ov-item{
+    border-radius: 5.25496564838px;
+    padding: max(5.5px, 0.75vw);
+    background-color: #fdf3d0; /*#ffecc4*/
+}
+.b-update:hover{
+    box-shadow: 0px 0px 0.46875vw 0.2604166666666667vw #6F9A85;
+}
+.b-update-on:hover{
+    opacity: 0.75;
+}
+.b-update-off{
+    opacity: 0.75;
+}
+.b-update-off:hover{
+    opacity: 1;
 }

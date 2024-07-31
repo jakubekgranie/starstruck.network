@@ -1,29 +1,35 @@
 /*
     IDEA BOARD
-    - Use regex and await for delayed but responsive animation initialization;
-    - Subtext init (lor[r]-esque);
-    - parallax-bound imagery;
-    - emphasize subs;
-    - logo
-    - animation ideas
-    - sections
-    - about me
-    - what do i do + langs
-    - current projects
-    - contact
+    - Use regex and await for delayed but responsive animation initialization; [?]
+    - Subtext init (lor[r]-esque); [?]
+    - parallax-bound imagery; [?]
+    - emphasize subs; [?]
+    - logo; [TBD]
+    - animation ideas; [IN-PROGRESS]
+    - sections: [1/5]
+        - home, [PRIMARY WORK DONE]
+        - about me, [IN-PROGRESS]
+        - my skills, [TBD]
+        - projects, [TBD]
+        - about site; [TBD]
+    - add a mirror element for the update feed to track size (see 1st comment excluding this). check if js can get computed values from such element when just stored in a variable.
+      if issues with viewport sync appear, resort to more rudimentary approaches; [TBD]
+    - get swap functions to two toggles if values used aren't js-dependent (calculations are, whilst classes/constant values are not). [DONE]
+
+    AFTER 1.0
+    - convert css subclasses to prefix-like names (see the .fx family).
 */
 let vw = window.innerWidth * 0.01, vh = window.innerHeight * 0.01;
 window.onload = () => {
     const us = document.getElementById("us"), us2 = document.getElementById("us2"), usHeight = us.clientHeight / vw - 2; // why does html generate such abhorrent spaces on resize?
-    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Added animations,<br>- Started section work,<br>- Optimized code.<br><br>==== KNOWN BUGS<br>- Unexpected line separation distance causes this element's dimensions to be inadequate when the viewport becomes bigger than initially. Fix en route.";
+    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Added a lang attribute to the HTML element,<br>- Development of the sections continues,<br>- Added an update feed control button,<br>- Tweaked/optimized all code.<br><br>==== KNOWN BUGS<br>- Unexpected line separation distance causes this element's dimensions to be inadequate when the viewport becomes bigger than initially. Fix en route.";
     const usExtendedHeight = us.clientHeight / vw - 2, us2Margin = usExtendedHeight - usHeight + "vw";
     us.style.height = usHeight + "vw";
     us2.style.top = us.clientHeight / vw - .750 +  "vw"; // resize breaks
     setInterval(() => {document.getElementById("h-writer").classList.toggle("op-0")}, 1000);
     const title = "// SHATTERWARES";
-    for(let i = 0; i < title.length; i++){
+    for(let i = 0; i < title.length; i++)
         setTimeout(() => {document.getElementById("h-contents").innerHTML += title[i]}, 450 + 35 * i - Math.pow(1.1, i));
-    }
     /*function loopedLetterRand(i, elementTextP, slogan){ // for every external loop call, start from one letter further. legacy. the core component of randomizeAddress().
         let elementText = [], elementTextReady = "";
         if(typeof elementTextP === undefined || elementTextP == null || elementTextP.length != slogan.length){
@@ -99,8 +105,20 @@ window.onload = () => {
             us2.style.marginTop = null;
         }
     }
-    document.getElementById("us-main").addEventListener("mouseover", () => {subUSAnimation(true)});
-    document.getElementById("us-main").addEventListener("mouseout", () => {subUSAnimation()});
+    const feed = document.getElementById("us-main");
+    feed.addEventListener("mouseover", () => {subUSAnimation(true)});
+    feed.addEventListener("mouseout", () => {subUSAnimation()});
+    const updateButton = document.getElementById("b-hide-feed");
+    function toggleFeed(){
+        if(!feed.style.display)
+            feed.style.display = "none";
+        else
+            feed.style.display = null;
+        updateButton.classList.toggle("b-update-on");
+        updateButton.classList.toggle("b-update-off");
+    }
+    updateButton.addEventListener("click", () => {toggleFeed()});
+    document.getElementById("b-hide-feed")
     const buttons = ["b-about", "b-skills", "b-projects", "b-site"], bInd = document.getElementById("b-indicator"), ov = document.getElementById("overlay");
     let isOverlaid;
     document.getElementById("b-home").addEventListener("click", () => {
@@ -130,8 +148,8 @@ window.onload = () => {
 document.addEventListener("scroll", () => {scrollListener()});
 window.onresize = () => {
     for(let i = 0; i < 2; i++){
-        document.getElementById("us").classList.toggle("t-p2");
-        document.getElementById("us2").classList.toggle("t-p2");
+        document.getElementById("us").classList.toggle("t-p125");
+        document.getElementById("us2").classList.toggle("t-p125");
     }
     vw = window.innerWidth * 0.01;
     vh = window.innerHeight * 0.01;
