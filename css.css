@@ -27,6 +27,12 @@ h1{
     font-size:3.8vw;
     font-weight:400
 }
+.header-h1-toggled{
+    background-image: linear-gradient(to right top, #ffbf87, #ead594, #d7e7b0, #cdf5d2, #d2fff1);
+    box-shadow: 0px 0px 8px 1px grey;
+    padding: 0.2vw 0.6vw;
+    border-radius: 0.4vw;
+}
 .header-p{
     font-size:1.05vw;
     word-break:break-all
@@ -132,12 +138,18 @@ h1{
 }
 .nav{
     right: 0;
-    flex-direction: column;
     margin-right: 1.5vw;
+}
+.-dir-c{
+    flex-direction: column;
 }
 .centering-y{
     top: 50%;
     transform: translateY(-50%);
+}
+.centering-x{
+    left: 50%;
+    transform: translateX(-50%);
 }
 .br-50p{
     border-radius: 50%;
@@ -185,13 +197,19 @@ h1{
     animation: blink .25s 2;
     animation-delay: .1s;
 }
-.overlay{
+.w-100p{
     width: 100%;
+}
+.h-100p{
     height: 100%;
+}
+.overlay{
     backdrop-filter: blur(16px) opacity(0.95);
-    padding: 12vh 18vw; /*maybe make horizontal padding wider? check after about-me completion.*/
-    z-index: 1;
+    padding: 11vh 12vw; /*maybe make horizontal padding wider? check after about-me completion.*/
     top: 0;
+}
+.z-1{
+    z-index: 1;
 }
 .t-p2{
     transition: all .2s ease-in-out;
@@ -208,11 +226,6 @@ h1{
     background-position: 30%;
     background-size: contain;
 }
-.ovd-title{
-    font: 1.75vw Valorant;
-    margin-top: auto;
-    margin-bottom: 0.9vw;
-}
 .gr-flt-about-me{
     filter: saturate(150%) drop-shadow(3px 3px #ffbcd4);
 }
@@ -228,17 +241,6 @@ h1{
     -moz-text-fill-color:transparent;
     -o-text-fill-color: transparent;
 }
-.ov-item-container{
-    border-width: 0.4vw;
-    padding: 4.5px;
-    height: fit-content;
-    border-radius: 7px;
-}
-.ov-item{
-    border-radius: 5.25496564838px;
-    padding: max(5.5px, 0.75vw);
-    background-color: #fdf3d0; /*#ffecc4*/
-}
 .b-update:hover{
     box-shadow: 0px 0px 0.46875vw 0.2604166666666667vw #6F9A85;
 }
@@ -250,4 +252,38 @@ h1{
 }
 .b-update-off:hover{
     opacity: 1;
+}
+
+.z-3{
+    z-index: 3;
+}
+.z-4{
+    z-index: 4;
+}
+.about-me-cmd{
+    width: 45vw;
+    border: #1d3b3f 4px solid;
+    border-radius: 20px;
+    overflow: hidden;
+    font-family: monospace;
+    color: #bbe1ec;
+}
+.cmd-title{
+    background-color: #254c52;
+    padding: 0.9vh 0.85vw;
+    font-size: .8vw;
+}
+.cmd-icon{
+    width: 1.4vw;
+    margin-right: 0.3vw;
+}
+.cmd-feed{
+    background-color: #162a2e;
+    padding: 1.3vw;
+    font-size: .7vw;
+    max-height: 43.05555555555556vh;
+    overflow: scroll;
+}
+.cmd-feed::-webkit-scrollbar{
+    display: none;
 }

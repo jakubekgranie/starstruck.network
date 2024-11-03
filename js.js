@@ -22,7 +22,7 @@
 let vw = window.innerWidth * 0.01, vh = window.innerHeight * 0.01;
 window.onload = () => {
     const us = document.getElementById("us"), us2 = document.getElementById("us2"), usHeight = us.clientHeight / vw - 2; // why does html generate such abhorrent spaces on resize?
-    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Added a lang attribute to the HTML element,<br>- Development of the sections continues,<br>- Added an update feed control button,<br>- Tweaked/optimized all code.<br><br>==== KNOWN BUGS<br>- Unexpected line separation distance causes this element's dimensions to be inadequate when the viewport becomes bigger than initially. Fix en route.";
+    document.getElementById("us-feed").innerHTML += "<hr class='mg-0 br-us_init'>==== CHANGELOG<br>- Continued development.<br><br>==== KNOWN BUGS<br>- Unexpected line separation distance causes this element's dimensions to be inadequate when the viewport becomes bigger than initially. Fix en route.";
     const usExtendedHeight = us.clientHeight / vw - 2, us2Margin = usExtendedHeight - usHeight + "vw";
     us.style.height = usHeight + "vw";
     us2.style.top = us.clientHeight / vw - .750 +  "vw"; // resize breaks
