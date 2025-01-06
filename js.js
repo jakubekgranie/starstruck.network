@@ -135,6 +135,13 @@ window.onload = () => {
                 ov.classList.remove("ov-off"); 
             isOverlaid = true;
         }); 
+    document.getElementById("b-about").addEventListener("click", () => {
+        const cmd = document.getElementById("about-me-cmd");
+        if(cmd.classList.contains("ov-off"))
+            cmd.classList.remove("ov-off");
+        else
+            cmd.classList.add("ov-off");
+    });
 }
 /*legacy function scrollListener(){
     vw = window.innerWidth * 0.01;

@@ -130,9 +130,6 @@ h1{
 .about-me{
     height: 80vh;
 }
-.op-0{
-    opacity: 0;
-}
 .pos-fxd{
     position: fixed;
 }
@@ -265,8 +262,11 @@ h1{
     border: #1d3b3f 4px solid;
     border-radius: 20px;
     overflow: hidden;
-    font-family: monospace;
+    transition: opacity 0.3s ease;
+}
+.cmd-font{
     color: #bbe1ec;
+    font-family: monospace;
 }
 .cmd-title{
     background-color: #254c52;
@@ -281,9 +281,17 @@ h1{
     background-color: #162a2e;
     padding: 1.3vw;
     font-size: .7vw;
-    max-height: 43.05555555555556vh;
     overflow: scroll;
+    height: 43.05555555555556vh;
 }
 .cmd-feed::-webkit-scrollbar{
     display: none;
+}
+#cmd-input{
+    background: none;
+    border: none;
+}
+#cmd-input:focus-visible{
+    outline: none;
+    caret-color: #bbe1ec;
 }
