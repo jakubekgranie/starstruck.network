@@ -1,0 +1,12 @@
+body{
+    font-size: 16px;
+    margin: 0;
+}
+.body-container{
+    padding: 3rem;
+    width: calc(100vw - 6rem);
+    height: calc(100vh - 6rem);
+    position: absolute;
+    background-size: 12px 12px;
+    background-image: radial-gradient(circle, #161616 1px, rgb(0, 0, 0) 1px);
+}
