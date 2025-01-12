@@ -6,7 +6,37 @@ body{
     padding: 3rem;
     width: calc(100vw - 6rem);
     height: calc(100vh - 6rem);
-    position: absolute;
     background-size: 12px 12px;
-    background-image: radial-gradient(circle, #161616 1px, rgb(0, 0, 0) 1px);
+    background-image: radial-gradient(circle, #0e0e0e 1px, rgb(0, 0, 0) 1px);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.star{
+    font-family: monospace;
+    letter-spacing: 0.05rem;
+    font-size: 0.6rem;
+    text-align: center;
+    color: white;
+    filter: drop-shadow(0px 0px 0.25rem red);
+    text-shadow: 0 0 0.75rem blueviolet;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+[id^="unit-"]{
+    color: #C41571;
+}
+
+.sidebar{
+    padding: 1rem 1.5rem;
+    border: 3px red solid;
+    border-radius: 0.375rem;
+    height: fit-content;
+    font-family: ui-sans-serif, system-ui, Roboto;
+}
+.lower-sidebar-member{
+    margin-top: auto;
 }

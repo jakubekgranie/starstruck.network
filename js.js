@@ -1,4 +1,4 @@
-async function lanyard(){
+/*async function lanyard(){
     const response = await fetch('https://api.lanyard.rest/v1/users/703646178536849448', {
     mode: 'cors',
     method: 'GET',
@@ -9,7 +9,21 @@ async function lanyard(){
     const data = await response.json();
     for(let i = 0; i < 2; i++)
         console.log(data.data.activities[i]);
-}
+}*/
+/*async function getGenius(songName, artists){
+    const parsedArtists = artists.split("; ");
+    let link = `https://starstruck.network/proxy.php?name=${songName}`;
+    for(let artist of parsedArtists)
+        link += `&artists[]=${encodeURIComponent(artist)}`;
+    fetch(link)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}*/
 async function lanyard2(){
     const socket = new WebSocket("wss://api.lanyard.rest/socket");
     let heartbeat;
@@ -33,10 +47,7 @@ async function lanyard2(){
     });
     socket.addEventListener("message", ({ data }) => {
         const { t : state, d : payload } = JSON.parse(data);
-        if (state === "INIT_STATE" || state === "PRESENCE_UPDATE"){
-            console.log(payload);
-            document.getElementById("lan-image").setAttribute("src", payload.spotify.album_art_url);
-        }
+        if (state === "INIT_STATE" || state === "PRESENCE_UPDATE");
     });
     socket.onclose = (event) => {
         try {
@@ -52,6 +63,4 @@ async function lanyard2(){
         console.warn(event);
       };
 }
-window.onload = () => {
-    document.getElementById("test").addEventListener("click", lanyard2);
-}
+document.addEventListener("DOMContentLoaded", lanyard2());
