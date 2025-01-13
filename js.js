@@ -16,6 +16,7 @@
       if issues with viewport sync appear, resort to more rudimentary approaches; [TBD]
     - get swap functions to two toggles if values used aren't js-dependent (calculations are, whilst classes/constant values are not). [DONE]
 
+<<<<<<< Updated upstream
     AFTER 1.0
     - convert css subclasses to prefix-like names (see the .fx family).
 */
@@ -44,6 +45,31 @@ window.onload = () => {
             while(char == ' ')
                 char = String.fromCharCode(Math.floor((Math.random() * 100))%95 + 32); // 32 - 126
             elementText[j] = char;
+=======
+        heartbeat = setInterval(() => {
+            socket.send(
+                JSON.stringify({
+                    op: 3,
+                })
+            );
+        }, 30000);
+    });
+    socket.addEventListener("message", ({ data }) => {
+        const { t : state, d : payload } = JSON.parse(data);
+        if (state === "INIT_STATE" || state === "PRESENCE_UPDATE")
+            console.log(.parse(payload));
+    });
+    socket.onclose = (event) => {
+        try {
+            console.warn("Socket closed. Attempting to reconnect in 1 second...");
+            clearInterval(heartbeat);
+            setTimeout(() => {
+                console.log("Trying to reconnect...");
+                lanyard2();
+            }, 1000);
+        } catch(err) {
+            console.error("An unexpected error occured near socket closure.\n\n" + err);
+>>>>>>> Stashed changes
         }
         elementText[i] = slogan[i];
         for(let j = 0; j < elementTextP.length; j++) // serialize
