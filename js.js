@@ -67,7 +67,7 @@ async function lanyard2(){
             }
             author += "<strong>";
             document.getElementById(`${classHeader}${elementData[0][1]}`).innerHTML = author;
-            document.getElementById(`${classHeader}${elementData[0][2]}`).href = `${elementData[1][1]}${spotify.track_id}`;
+            document.getElementById(`${classHeader}${elementData[0][2]}`).href = `${elementData[1][2]}${spotify.track_id}`;
             for(let i = 3; i < elementData[0].length; i++)
                 document.getElementById(`${classHeader}${elementData[0][i]}`).innerHTML = elementData[1][i];
         }
