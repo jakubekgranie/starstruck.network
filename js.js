@@ -58,6 +58,7 @@ async function lanyard2(){
                                 ];
             document.getElementById(`${classHeader}${elementData[0][0]}`).src = elementData[1][0];
             let authors = elementData[1][1].split("; ");
+            // add smalltext overflow functionality
             let author = `by <strong>${authors[0]}`, secondaryAuthors = ``;
             for(let i = 1; i < authors.length; i++){
                 if(`${author}, ${authors[i]}`.length > 27)
