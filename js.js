@@ -53,12 +53,21 @@ async function lanyard2(){
             const spotify = payload.spotify, // prevent songs from mixing
                   classHeader = "spotify-tab-",
                   elementData = [
-                                    ["album-art", "hyperlink", "header", "title", "author", "album"], 
-                                    [spotify.album_art_url, "https://open.spotify.com/track/", "Listening to Spotify", spotify.song, `by <strong>${spotify.artist}</strong>`, `🖸 ${spotify.album}`]
+                                    ["album-art", "author", "hyperlink", "header", "title", "album"], 
+                                    [spotify.album_art_url, payload.spotify.artist, "https://open.spotify.com/track/", "Listening to Spotify", spotify.song, `🖸 ${spotify.album}`]
                                 ];
             document.getElementById(`${classHeader}${elementData[0][0]}`).src = elementData[1][0];
-            document.getElementById(`${classHeader}${elementData[0][1]}`).href = `${elementData[1][1]}${spotify.track_id}`;
-            for(let i = 2; i < elementData[0].length; i++)
+            let authors = elementData[1][1].split("; ");
+            let author = `by <strong>${authors[0]}`, secondaryAuthors = ``;
+            for(let i = 1; i < authors.length; i++){
+                if(`${author}, ${authors[i]}`.length > 27)
+                    break;
+                author += `, ${authors[i]}`;
+            }
+            author += "<strong>";
+            document.getElementById(`${classHeader}${elementData[0][1]}`).innerHTML = author;
+            document.getElementById(`${classHeader}${elementData[0][2]}`).href = `${elementData[1][1]}${spotify.track_id}`;
+            for(let i = 3; i < elementData[0].length; i++)
                 document.getElementById(`${classHeader}${elementData[0][i]}`).innerHTML = elementData[1][i];
         }
     });

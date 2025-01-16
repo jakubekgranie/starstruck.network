@@ -87,7 +87,6 @@ code{
 }
 #spotify-tab-header{
     font-size: 1.1rem;
-    font-family: "Noto Sans Wancho", Roboto;
 }
 .spotify-tab-datablock{
     flex-direction: row;
@@ -111,4 +110,5 @@ code{
 .spotify-tab-smalltext{
     text-overflow: ellipsis;
     font-size: 0.9rem;
+    word-break: break-all;
 }
