@@ -31,7 +31,7 @@
         <meta name='HandheldFriendly' content='True'>
         <meta name='copyright' content='Jakub Namyślak'>
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.lanyard.rest wss://api.lanyard.rest/socket https://api.genius.com/search; img-src 'self' https://i.scdn.co; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE=';">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.lanyard.rest wss://api.lanyard.rest/socket https://api.genius.com/search; img-src 'self' https://i.scdn.co; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' https://fonts.googleapis.com/; font-src https://fonts.gstatic.com">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
@@ -120,12 +120,19 @@
             </section>
             <section class="sidebar flex flex-space-between">
                 <div></div>
-                <div class="sidebar-member lower-sidebar-member spotify-tab spotify-tab-gradient-1">
-                    <h3 class="spotify-tab-header">Listening to...</h3>
-                    <div>
-                        <img src="Visual assets/spotify.png" class="spotify-tab-album-art" alt="Spotify album art">
+                <a id="spotify-tab-hyperlink" target="_blank" class="sidebar-member lower-sidebar-member block-hyperlink">
+                    <div class="spotify-tab spotify-tab-gradient-1">
+                        <h3 id="spotify-tab-header" class="no-margin">Spotify Fetch Module</h3>
+                        <div class="flex spotify-tab-datablock">
+                            <img src="Visual assets/spotify.png" id="spotify-tab-album-art" alt="Spotify album art">
+                            <div class="spotify-tab-textblock flex">
+                                <h4 id="spotify-tab-title" class="no-margin">By <strong>jakubekgranie</strong></h4>
+                                <p id="spotify-tab-author" class="no-margin spotify-tab-smalltext">Using <code>lanyard2()</code></p>
+                                <p id="spotify-tab-album" class="no-margin spotify-tab-smalltext">Made in JavaScript</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </section>
         </section>
     </body>

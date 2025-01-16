@@ -2,6 +2,11 @@ body{
     font-size: 16px;
     margin: 0;
 }
+code{
+    background-color: rgba(24, 24, 24, 0.75);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.25rem;
+}
 .body-container{
     padding: 3rem;
     width: calc(100vw - 6rem);
@@ -13,8 +18,8 @@ body{
     justify-content: space-between;
 }
 
-h1{
-    margin:0
+.no-margin{
+    margin: 0
 }
 
 .flex{
@@ -43,22 +48,19 @@ h1{
 }
 
 .sidebar{
-    height: 100%;
     padding: 1rem 0;
-    border: 3px red solid;
+    /*border: 3px red solid;*/
     border-radius: 0.375rem;
     font-family: ui-sans-serif, system-ui, Roboto;
 }
 .sidebar-member{
     height: fit-content;
-    margin: 0 1.5rem;
-}
-.sidebar-member{
-    height: fit-content;
-    margin: 0 1.5rem;
 }
 .lower-sidebar-member{
     margin-top: auto;
+}
+.block-hyperlink{
+    text-decoration: none;
 }
 
 .spotify-tab{
@@ -67,6 +69,9 @@ h1{
     padding: 1.25rem;
     /*box-shadow: 0px 0px 18px 6px #330214;*/
     backdrop-filter: blur(0.04rem);
+    color: white;
+    max-width: 24rem;
+    min-width: 18rem;
 }
 .spotify-tab-gradient-1{
     background-image: linear-gradient(to right bottom, rgba(146, 15, 84, 0.2), rgba(121, 10, 65, 0.2), rgba(96, 7, 48, 0.2), rgba(72, 4, 32, 0.2), rgba(49, 2, 18, 0.2));
@@ -74,10 +79,36 @@ h1{
 .spotify-tab-gradient-2{
     background-image: linear-gradient(30deg,rgba(241, 255, 250, 0.2),rgba(238, 250, 238, 0.2),rgba(241, 243, 225, 0.2),rgba(247, 234, 214, 0.2),rgba(253, 225, 210, 0.2),rgba(254, 223, 205, 0.2),rgb(255, 219, 196, 0.2),rgba(255, 217, 189, 0.2),rgba(239, 225, 174, 0.2),rgba(208, 236, 177, 0.2),rgba(158, 245, 199, 0.2),rgba(96, 251, 241, 0.2));
 }
-.spotify-tab-album-art{
-    width: 70px;
-    height: 70px;
+#spotify-tab-album-art{
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 0.4432432432em;
+    margin-right: 1.6rem; 
 }
-.spotify-tab-header{
+#spotify-tab-header{
+    font-size: 1.1rem;
+    font-family: "Noto Sans Wancho", Roboto;
+}
+.spotify-tab-datablock{
+    flex-direction: row;
+    margin-top: 1.25rem;
+}
+.spotify-tab-subtext{
     margin: 0;
+}
+.spotify-tab-textblock{
+    height: 6.25rem;
+    justify-content: center;
+    flex-direction: column;
+}
+#spotify-tab-title{
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+}
+#spotify-tab-author{
+    margin-bottom: 0.07rem;
+}
+.spotify-tab-smalltext{
+    text-overflow: ellipsis;
+    font-size: 0.9rem;
 }

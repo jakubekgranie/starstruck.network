@@ -27,6 +27,7 @@
 async function lanyard2(){
     const socket = new WebSocket("wss://api.lanyard.rest/socket");
     let heartbeat;
+
     socket.addEventListener("open", () => {
         socket.send(
             JSON.stringify({
@@ -34,7 +35,7 @@ async function lanyard2(){
                 d: {
                     "subscribe_to_id": "703646178536849448",
                 }
-            }),
+            })
         );
 
         heartbeat = setInterval(() => {
@@ -47,7 +48,19 @@ async function lanyard2(){
     });
     socket.addEventListener("message", ({ data }) => {
         const { t : state, d : payload } = JSON.parse(data);
-        if (state === "INIT_STATE" || state === "PRESENCE_UPDATE");
+        if (state === "INIT_STATE" || state === "PRESENCE_UPDATE"){
+            console.log(payload);
+            const spotify = payload.spotify, // prevent songs from mixing
+                  classHeader = "spotify-tab-",
+                  elementData = [
+                                    ["album-art", "hyperlink", "header", "title", "author", "album"], 
+                                    [spotify.album_art_url, "https://open.spotify.com/track/", "Listening to Spotify", spotify.song, `by <strong>${spotify.artist}</strong>`, `🖸 ${spotify.album}`]
+                                ];
+            document.getElementById(`${classHeader}${elementData[0][0]}`).src = elementData[1][0];
+            document.getElementById(`${classHeader}${elementData[0][1]}`).href = `${elementData[1][1]}${spotify.track_id}`;
+            for(let i = 2; i < elementData[0].length; i++)
+                document.getElementById(`${classHeader}${elementData[0][i]}`).innerHTML = elementData[1][i];
+        }
     });
     socket.onclose = (event) => {
         try {
