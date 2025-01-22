@@ -51,7 +51,6 @@ code{
     /*border: 3px red solid;*/
     border-radius: 0.375rem;
     font-family: ui-sans-serif, system-ui, Roboto;
-    align-items: end;
 }
 .sidebar-member{
     height: fit-content;

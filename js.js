@@ -94,8 +94,11 @@ async function lanyard2(){
                     activityTab.appendChild(activityIcon);
                 }
             }
+            const trueActivityTab = document.getElementById("activity-tab");
             if(activitiesAvailable)
-                document.getElementById("activity-tab").style.display = "flex";
+                trueActivityTab.style.display = "flex";
+            else
+            trueActivityTab.style.display = null;
         }
     });
     socket.onclose = (event) => {
