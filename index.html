@@ -31,7 +31,7 @@
         <meta name='HandheldFriendly' content='True'>
         <meta name='copyright' content='Jakub Namyślak'>
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.lanyard.rest wss://api.lanyard.rest/socket https://api.genius.com/search; img-src 'self' https://i.scdn.co; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' https://fonts.googleapis.com/; font-src https://fonts.gstatic.com">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.lanyard.rest wss://api.lanyard.rest/socket https://api.genius.com/search; img-src 'self' https://i.scdn.co https://cdn.discordapp.com; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' https://fonts.googleapis.com/; font-src https://fonts.gstatic.com">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
@@ -52,8 +52,8 @@
         
         <title>starstruck's</title>
     </head>
-    <body>
-        <section class="body-container">
+    <body class="no-margin">
+        <section class="body-container flex-space-between">
             <div class="star">
                         <span id="unit-0-49">-</span><br>
                         <span id="unit-1-49">-</span><span id="unit-1-50">=</span><br>
@@ -118,21 +118,27 @@
                     </p>
                 </div>
             </section>
-            <section class="sidebar flex flex-space-between">
+            <section class="sidebar flex flex-space-between flex-column">
                 <div></div>
-                <a id="spotify-tab-hyperlink" target="_blank" class="sidebar-member lower-sidebar-member block-hyperlink">
-                    <div class="spotify-tab spotify-tab-gradient-1">
-                        <h3 id="spotify-tab-header" class="no-margin">Spotify Fetch Module</h3>
-                        <div class="flex spotify-tab-datablock">
-                            <img src="Visual assets/spotify.png" id="spotify-tab-album-art" alt="Spotify album art">
-                            <div class="spotify-tab-textblock flex">
-                                <h4 id="spotify-tab-title" class="no-margin">By <strong>jakubekgranie</strong></h4>
-                                <p id="spotify-tab-author" class="no-margin spotify-tab-smalltext">Using <code>lanyard2()</code></p>
-                                <p id="spotify-tab-album" class="no-margin spotify-tab-smalltext">Made in JavaScript</p>
+                <div class="lower-sidebar-member sidebar-member">
+                    <div id="activity-tab" class="sidebar-decor flex-column">
+                        <p class="activity-tab-title no-margin">// Activities</p>
+                        <div id="activity-tab-feed" class="flex flex-jc-center"></div>
+                    </div>
+                    <a id="spotify-tab-hyperlink" target="_blank" class="sidebar-member block-hyperlink">
+                        <div class="spotify-tab spotify-tab-gradient-1 sidebar-decor">
+                            <h3 id="spotify-tab-header" class="no-margin">Spotify Fetch Module</h3>
+                            <div class="flex spotify-tab-datablock">
+                                <img src="Visual assets/spotify.png" id="spotify-tab-album-art" class="spotify-image-decor" alt="Spotify album art">
+                                <div class="spotify-tab-textblock flex flex-column flex-jc-center">
+                                    <h4 id="spotify-tab-title" class="no-margin">By <strong>jakubekgranie</strong></h4>
+                                    <p id="spotify-tab-author" class="no-margin spotify-tab-smalltext">Using <code>lanyard2()</code></p>
+                                    <p id="spotify-tab-album" class="no-margin spotify-tab-smalltext">Made in JavaScript</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </section>
         </section>
     </body>

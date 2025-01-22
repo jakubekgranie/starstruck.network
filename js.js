@@ -57,19 +57,45 @@ async function lanyard2(){
                                     [spotify.album_art_url, payload.spotify.artist, "https://open.spotify.com/track/", "Listening to Spotify", spotify.song, `🖸 ${spotify.album}`]
                                 ];
             document.getElementById(`${classHeader}${elementData[0][0]}`).src = elementData[1][0];
-            let authors = elementData[1][1].split("; ");
-            // add smalltext overflow functionality
-            let author = `by <strong>${authors[0]}`, secondaryAuthors = ``;
+            let authors = elementData[1][1].split("; "), 
+                author = `by <strong>${authors[0]}</strong>`;
             for(let i = 1; i < authors.length; i++){
-                if(`${author}, ${authors[i]}`.length > 27)
+                if(`${author}, ${authors[i]}`.length > 41 + i * 17) // 17 equals tag length, 24 + 17 = 41
                     break;
-                author += `, ${authors[i]}`;
+                author += `, <strong>${authors[i]}</strong>`;
             }
-            author += "<strong>";
             document.getElementById(`${classHeader}${elementData[0][1]}`).innerHTML = author;
             document.getElementById(`${classHeader}${elementData[0][2]}`).href = `${elementData[1][2]}${spotify.track_id}`;
             for(let i = 3; i < elementData[0].length; i++)
                 document.getElementById(`${classHeader}${elementData[0][i]}`).innerHTML = elementData[1][i];
+            const activities = payload.activities,
+                  activityTab = document.getElementById("activity-tab-feed");
+            let bannedActivities = ["Custom Status", "Spotify"], // do not display these
+                activitiesAvailable = false;
+            activityTab.innerHTML = null;
+            for(let i = 0; i < activities.length && i < 6; i++){
+                let banned = false;
+                for(let j in bannedActivities)
+                    if(activities[i].name == bannedActivities[j]){
+                        banned = true;
+                        break;
+                    }
+                if(!banned){
+                    activitiesAvailable = true;
+                    bannedActivities.push(activities[i].name);
+                    const activityIcon = document.createElement("img");
+                    let source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activities[i].application_id)}/${encodeURIComponent(activities[i].assets.large_image)}.png`;
+                    if(activities[i].name == "Visual Studio Code" && activities.large_text == "Idling")
+                        source = "\\Visual assets\\vsc.png";
+                    activityIcon.src = source;
+                    activityIcon.classList.add("activity-tab-icon", "sidebar-image-decor");
+                    activityIcon.alt = activities[i].name;
+                    activityIcon.title = activities[i].name + (activities[i].details && ` - ${activities[i].details}`);
+                    activityTab.appendChild(activityIcon);
+                }
+            }
+            if(activitiesAvailable)
+                document.getElementById("activity-tab").style.display = "flex";
         }
     });
     socket.onclose = (event) => {

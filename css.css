@@ -1,6 +1,5 @@
 body{
     font-size: 16px;
-    margin: 0;
 }
 code{
     background-color: rgba(24, 24, 24, 0.75);
@@ -15,7 +14,6 @@ code{
     background-image: radial-gradient(circle, #0e0e0e 1px, rgb(0, 0, 0) 1px);
     position: relative;
     display: flex;
-    justify-content: space-between;
 }
 
 .no-margin{
@@ -42,6 +40,7 @@ code{
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
+    user-select: none;
 }
 [id^="unit-"]{
     color: #C41571;
@@ -52,9 +51,11 @@ code{
     /*border: 3px red solid;*/
     border-radius: 0.375rem;
     font-family: ui-sans-serif, system-ui, Roboto;
+    align-items: end;
 }
 .sidebar-member{
     height: fit-content;
+    max-width: 24.5rem;
 }
 .lower-sidebar-member{
     margin-top: auto;
@@ -62,16 +63,20 @@ code{
 .block-hyperlink{
     text-decoration: none;
 }
-
+.sidebar-decor{
+    padding: 1.25rem;
+    border-radius: 0.85rem;
+}
+.sidebar-image-decor{
+    border-radius: 0.4432432432em;
+}
 .spotify-tab{
     border: 3px solid #8A0F50;
-    border-radius: 0.85rem;
-    padding: 1.25rem;
     /*box-shadow: 0px 0px 18px 6px #330214;*/
     backdrop-filter: blur(0.04rem);
     color: white;
-    max-width: 24rem;
     min-width: 18rem;
+    margin-top: 1rem;
 }
 .spotify-tab-gradient-1{
     background-image: linear-gradient(to right bottom, rgba(146, 15, 84, 0.2), rgba(121, 10, 65, 0.2), rgba(96, 7, 48, 0.2), rgba(72, 4, 32, 0.2), rgba(49, 2, 18, 0.2));
@@ -82,8 +87,8 @@ code{
 #spotify-tab-album-art{
     width: 6.25rem;
     height: 6.25rem;
-    border-radius: 0.4432432432em;
     margin-right: 1.6rem; 
+    box-shadow: #0e0e0e 0 0 2rem;
 }
 #spotify-tab-header{
     font-size: 1.1rem;
@@ -95,10 +100,13 @@ code{
 .spotify-tab-subtext{
     margin: 0;
 }
+.flex-column{
+    flex-direction: column;
+}
 .spotify-tab-textblock{
     height: 6.25rem;
     justify-content: center;
-    flex-direction: column;
+    
 }
 #spotify-tab-title{
     font-size: 1.05rem;
@@ -110,4 +118,28 @@ code{
 .spotify-tab-smalltext{
     text-overflow: ellipsis;
     font-size: 0.9rem;
+}
+
+#activity-tab{
+    width: fit-content;
+    background-color: rgba(138, 138, 138, 0.2);
+    display: none;
+    border: 3px lightgrey solid;
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+#activity-tab-feed{
+    margin: 0 auto;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+.activity-tab-icon{
+    width: 3rem;
+    filter: drop-shadow(0 0 0.45rem rgba(128, 128, 128, 0.14));
+}
+.activity-tab-title{
+    font: 0.85rem monospace;
+    font-weight: 900;
+    margin-bottom: 0.6rem;
+    color: lightgrey;
 }
