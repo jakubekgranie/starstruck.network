@@ -1,41 +1,15 @@
-/*async function lanyard(){
-    const response = await fetch('https://api.lanyard.rest/v1/users/703646178536849448', {
-    mode: 'cors',
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-    }
-    });
-    const data = await response.json();
-    for(let i = 0; i < 2; i++)
-        console.log(data.data.activities[i]);
-}*/
-/*async function getGenius(songName, artists){
-    const parsedArtists = artists.split("; ");
-    let link = `https://starstruck.network/proxy.php?name=${songName}`;
-    for(let artist of parsedArtists)
-        link += `&artists[]=${encodeURIComponent(artist)}`;
-    fetch(link)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}*/
 let currentActivities = [];
 async function lanyard2(){
     const socket = new WebSocket("wss://api.lanyard.rest/socket"),
           CONFIG = {
-            bannedActivities : ["Custom Status", "Spotify"],
-            resources_location : "\\Visual assets\\",
-            imagery: {
-                "Wuthering Waves" : "wuwa.png"
-            },
-            max_length : 41,
-            wrapper_length : 17
-          };
+                bannedActivities : ["Custom Status", "Spotify"],
+                resources_location : "\\Visual assets\\",
+                imagery: {
+                    "Wuthering Waves" : "wuwa.png"
+                },
+                max_length : 41,
+                wrapper_length : 17
+            };
     let heartbeat;
 
     socket.addEventListener("open", () => {
@@ -56,6 +30,7 @@ async function lanyard2(){
             );
         }, 30000);
     });
+
     socket.addEventListener("message", ({ data }) => {
         const { t : state, d : payload } = JSON.parse(data);
         if (state === "INIT_STATE" || state === "PRESENCE_UPDATE"){
@@ -79,6 +54,7 @@ async function lanyard2(){
                 document.getElementById(`${classHeader}${elementData[0][2]}`).href = `${elementData[1][2]}${spotify.track_id}`; // create the spotify album link
                 for(let i = 3; i < elementData[0].length; i++)
                     document.getElementById(`${classHeader}${elementData[0][i]}`).innerHTML = elementData[1][i]; // standard content injection
+                // [ADD] a timeout changing the tab to blank after a select period with no updates
             }
 
             const activities = payload.activities; // shorthand, prevent arbitrary changes
@@ -110,15 +86,16 @@ async function lanyard2(){
                       identifier = activity.name + (activity.details && ` - ${activity.details}`); // element's id
                 /*
                     Check if the activity:
-                        1 => features the required data (assets);
+                        1 => features the required data (large_image from assets);
                         2 => isn't featured already.
                 */
-                if(typeof activity.assets !== "undefined" && !currentActivities.includes(identifier)){
-                    let source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activity.application_id)}/${encodeURIComponent(activity.assets.large_image)}.png`;
-                    if(typeof activity.assets.large_image === "undefined");
+                if(((typeof activity.assets !== "undefined" && typeof activity.large_image === "undefined") || CONFIG.imagery[activity.name]) && !currentActivities.includes(identifier)){
+                    let source;
+                    if(typeof activity.assets !== "undefined" || typeof activity.large_image !== "undefined")
+                        source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activity.application_id)}/${encodeURIComponent(activity.assets.large_image)}.png`;
                     if(activity.name == "Visual Studio Code" && activities.large_text == "Idling") // special case
                         source = `${CONFIG.resources_location}vsc.png`;
-                    else if(CONFIG.imagery[activity.name]) // replace with a custom icon for cosmetic or replacement purposes
+                    if(CONFIG.imagery[activity.name]) // replace with a custom icon for cosmetic or replacement purposes
                         source = `${CONFIG.resources_location}${CONFIG.imagery[activity.name]}`;
                     currentActivities.push(identifier);
                     activitiesAvailable = true;
@@ -145,6 +122,7 @@ async function lanyard2(){
             }
         }
     });
+
     socket.onclose = (event) => {
         try {
             console.warn("Socket closed. Attempting to reconnect in 1 second...");
