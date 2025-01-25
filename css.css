@@ -118,14 +118,20 @@ code{
     text-overflow: ellipsis;
     font-size: 0.9rem;
 }
-
 #activity-tab{
     width: fit-content;
+    max-height: 0.85rem;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.1s;
     background-color: rgba(138, 138, 138, 0.2);
-    display: none;
+    display: flex;
     border: 3px lightgrey solid;
     flex: 0 0 auto;
     margin-left: auto;
+    overflow: hidden;
+}
+.show-activity-tab{
+    max-height: calc(6.6rem + 3px) !important;
 }
 #activity-tab-feed{
     margin: 0 auto;
@@ -134,11 +140,44 @@ code{
 }
 .activity-tab-icon{
     width: 3rem;
-    filter: drop-shadow(0 0 0.45rem rgba(128, 128, 128, 0.14));
+    filter: drop-shadow(0 0 0.45rem rgba(128, 128, 128, 0.15));
+    transition: 0.3s ease-in-out;
 }
-.activity-tab-title{
+.hidden-activity-tab-icon{
+    opacity: 0;
+    margin-right: -3.5rem;
+    filter: none;
+}
+.hidden-activity-tab-icon:last-of-type{
+    margin-left: -3.5rem;
+    margin-right: unset;
+}
+.hidden-activity-tab-icon:only-of-type{
+    margin: 0 auto;
+}
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#activity-tab-title{
     font: 0.85rem monospace;
     font-weight: 900;
-    margin-bottom: 0.6rem;
+    margin-bottom: 1.25rem;
     color: lightgrey;
+    animation: blink 0.4s ease-in;
+    transition: margin-bottom 0.15s ease-in-out;
+    transition-delay: 0.1s;
 }

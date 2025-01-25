@@ -1,28 +1,10 @@
-<!--
-<?php
-    header("Content-Security-Policy: default-src 'self'; connect-src 'self' https://api.lanyard.rest wss://api.lanyard.rest/socket https://api.genius.com/search; img-src 'self' https://i.scdn.co; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE=';");
-    header("Access-Control-Allow-Origin: *");  // Allows any origin
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");  // Allowed methods
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");  // Allowed headers
-    
-    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-        header('HTTP/1.1 200 OK');  // Respond with 200 OK for OPTIONS requests
-        exit;  // End the script to avoid further execution
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] == 'GET')
-        echo json_encode(['message' => 'CORS headers are set and response is ready.']);
-    else
-        echo json_encode(['message' => 'Unsupported request method.']);
-?>
--->
 <!doctype html>
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <meta name="author" content="Jakub Namyślak">
-        <meta name="keywords" content="starstruck, starstruck.network, starstruck network, ShatterOS, ShatterWares, Jakub Namyślak, ZSEk programiści projekt, ZSEK programiści, ekonom, ekonom Opole, ZSEk, project, self-made, javascript, php, css, html, js, python, cpp, c++, c, informatyk, programista, informatycy, programiści, ShWHP, ShWPH, ShatterWares Project Hub, ShatterWares Homepage, ShatterWares Micro">
+        <meta name="keywords" content="starstruck, starstruck.network, starstruck network, ShatterOS, ShatterWares, Jakub Namyślak, jakubekgranie, ZSEK programiści, ekonom, Opole, ZSEk, project, self-made, javascript, php, css, html, js, python, cpp, c++, c, c#, wpf, windows forms, informatyk, programista, informatycy, programiści, ShWHP, ShWPH, ShatterWares Project Hub, ShatterWares Homepage, ShatterWares Micro">
         <meta name="description" content="come peer into the corner of mine.">
         <meta name="owner" content="Jakub Namyślak">
         <meta name="url" content="https://starstruck.network">
@@ -36,7 +18,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
-        <link rel="manifest" href="/site.webmanifest?v=5">
+        <link rel="manifest" href="/site.webmanifest?v=6">
         <link rel="mask-icon" href="/safari-pinned-tab.svg?v=5" color="#00d1c4">
         <link rel="shortcut icon" href="/favicon.ico?v=5">
         <meta name="msapplication-TileColor" content="#00aba9">
@@ -122,7 +104,7 @@
                 <div></div>
                 <div class="lower-sidebar-member sidebar-member">
                     <div id="activity-tab" class="sidebar-decor flex-column">
-                        <p class="activity-tab-title no-margin">// Activities</p>
+                        <p id="activity-tab-title" class="no-margin">// Activities</p>
                         <div id="activity-tab-feed" class="flex flex-jc-center"></div>
                     </div>
                     <a id="spotify-tab-hyperlink" target="_blank" class="sidebar-member block-hyperlink">
