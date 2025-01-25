@@ -83,7 +83,7 @@ async function lanyard2(){
                   maxAmount = 6 - currentActivities.length; // 6 being the maximum amount of icons onscreen - the ones currently on display
             for(let i = 0; i < activities.length && i < maxAmount; i++){
                 const activity = activities[i], // shorthand
-                identifier = activity.name + (activity.details) ? ` - ${activity.details}` : ``; // element's id
+                identifier = activity.name + (activity.details ? ` - ${activity.details}` : ``); // element's id
                 /*
                     Check if the activity:
                         1 => features the required data (large_image from assets);
