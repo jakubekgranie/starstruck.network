@@ -94,6 +94,7 @@ code{
 }
 .spotify-tab-datablock{
     flex-direction: row;
+    align-items: center;
     margin-top: 1.25rem;
 }
 .spotify-tab-subtext{
@@ -103,7 +104,7 @@ code{
     flex-direction: column;
 }
 .spotify-tab-textblock{
-    height: 6.25rem;
+    min-height: 6.25rem;
     justify-content: center;
     
 }
