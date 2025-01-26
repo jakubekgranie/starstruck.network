@@ -27,7 +27,7 @@ code{
     justify-content: space-between;
 }
 
-.star{
+#star{
     font-family: monospace;
     letter-spacing: 0.05rem;
     font-size: 0.6rem;
@@ -43,6 +43,7 @@ code{
     user-select: none;
 }
 [id^="unit-"]{
+    transition: color 0.15s;
     color: #C41571;
 }
 
@@ -122,8 +123,7 @@ code{
 #activity-tab{
     width: fit-content;
     max-height: 0.85rem;
-    transition: 0.3s ease-in-out;
-    transition-delay: 0.1s;
+    transition: 0.3s ease-in-out 0.1s;
     background-color: rgba(138, 138, 138, 0.2);
     display: flex;
     border: 3px lightgrey solid;
@@ -181,4 +181,26 @@ code{
     animation: blink 0.4s ease-in;
     transition: margin-bottom 0.15s ease-in-out;
     transition-delay: 0.1s;
+}
+
+@keyframes colorChange0{
+    0%{
+        color: #7ff7b7;
+    }
+    25%{
+        color: #7ff7b7;
+    }
+    50%{
+        color: #ffb689;
+        font-weight: 900;
+    }
+    75%{
+        color: #c3e99a;
+    }
+    100%{
+        color: #7ff7b7;
+    }
+}
+.star-color0{
+    animation: colorChange0 0.75s ease-in-out  forwards;
 }
