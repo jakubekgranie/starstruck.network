@@ -28,11 +28,9 @@ code{
 }
 
 #star{
-    font-family: monospace;
+    font: 0.6rem monospace;
     letter-spacing: 0.05rem;
-    font-size: 0.6rem;
     text-align: center;
-    color: white;
     filter: drop-shadow(0px 0px 0.25rem red);
     text-shadow: 0 0 0.75rem blueviolet;
     position: absolute;
@@ -43,7 +41,7 @@ code{
     user-select: none;
 }
 [id^="unit-"]{
-    transition: color 0.15s;
+    transition: color 0.15s 0.15s;
     color: #C41571;
 }
 
@@ -55,10 +53,8 @@ code{
 }
 .sidebar-member{
     height: fit-content;
+    color: white;
     max-width: 24.5rem;
-}
-.lower-sidebar-member{
-    margin-top: auto;
 }
 .block-hyperlink{
     text-decoration: none;
@@ -74,7 +70,6 @@ code{
     border: 3px solid #8A0F50;
     /*box-shadow: 0px 0px 18px 6px #330214;*/
     backdrop-filter: blur(0.04rem);
-    color: white;
     min-width: 18rem;
     margin-top: 1rem;
 }
@@ -202,5 +197,13 @@ code{
     }
 }
 .star-color0{
-    animation: colorChange0 0.75s ease-in-out  forwards;
+    animation: colorChange0 0.75s ease-in-out;
+}
+#name-header{
+    font: 3rem Outfit;
+    letter-spacing: 0.2rem;
+}
+.name-header-subtext{
+    font: 1.2rem monospace;
+    margin-top: 0.3rem;
 }
