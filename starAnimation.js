@@ -1,8 +1,8 @@
 const styles = [
                 ["#ffdbc4", "#a0f5c7", "#7ff7b7"]
             ];
-let listeners = [],
-    lock = false;
+let lock = false;
+
 function animate(){
     document.getElementById("star").classList.add("star-color0-support");
     for(let i = 0; i < 53; i++)
@@ -18,12 +18,27 @@ function animate(){
     star.style.filter = `drop-shadow(0px 0px 0.25rem ${styles[0][0]})`;
     star.style.textShadow = `0 0 0.75rem ${styles[0][1]}`;
 }
+
+function animateName(){
+    let name = "starstruck",
+        limit = 0,
+        randomOutput;
+    const interval = setInterval(() => {
+        if(++limit % 2 == 1){
+            randomOutput = "";
+            for(let i = 0; i < name.length; i++)
+                randomOutput += String.fromCharCode(Math.floor(Math.random() * 62) + 65);
+        }
+        document.getElementById("name-header-feed").innerHTML = name.substring(0, limit) + randomOutput.substring(limit, randomOutput.length);
+        if(limit == name.length) {
+            clearInterval(interval);
+            document.getElementById("name-header-underscore").classList.add("blink-forever");
+        }
+    }, 40);
+}
+
 function initialize(){
-    for(let i = 0; i < 53; i++){
-        listeners.push([]);
-        for(let j = 0; j < 100; j++)
-            listeners[i].push(null);
-    }
-    document.getElementById("spotify-tab-hyperlink").addEventListener("mouseover", () => {animate(0)});    
+    document.getElementById("spotify-tab-hyperlink").addEventListener("mouseover", () => {animate()});
+    animateName();
 }
 document.addEventListener("DOMContentLoaded", initialize);

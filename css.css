@@ -134,13 +134,24 @@ code{
     gap: 0.6rem;
     flex-wrap: wrap;
 }
+@keyframes show {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 .activity-tab-icon{
     width: 3rem;
     filter: drop-shadow(0 0 0.45rem rgba(128, 128, 128, 0.15));
+    animation: show 0.25s ease-in-out;
     transition: 0.3s ease-in-out;
 }
-.hidden-activity-tab-icon{
+.transparent{
     opacity: 0;
+}
+.hidden-activity-tab-icon{
     margin-right: -3.5rem;
     filter: none;
 }
@@ -152,9 +163,6 @@ code{
     margin: 0 auto;
 }
 @keyframes blink {
-    0%{
-        opacity: 1;
-    }
     25%{
         opacity: 0;
     }
@@ -163,9 +171,6 @@ code{
     }
     75%{
         opacity: 0;
-    }
-    100%{
-        opacity: 1;
     }
 }
 #activity-tab-title{
@@ -199,11 +204,17 @@ code{
 .star-color0{
     animation: colorChange0 0.75s ease-in-out;
 }
-#name-header{
+.name-header{
     font: 3rem Outfit;
     letter-spacing: 0.2rem;
 }
 .name-header-subtext{
     font: 1.2rem monospace;
     margin-top: 0.3rem;
+}
+#name-header-underscore{
+    opacity: 0;
+}
+.blink-forever{
+    animation: blink 1.6s ease-in-out infinite;
 }

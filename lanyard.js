@@ -52,12 +52,15 @@ function parseLanyard2(payload){
             }
             if(!includes){
                 const element = document.getElementById(currentActivities[i]);
-                element.classList.add("hidden-activity-tab-icon");
+                element.classList.add("hidden-activity-tab-icon", "transparent");
                 setTimeout(() => {element.remove();}, 350); // lesson learned
                 currentActivities.splice(i, 1);
             }
         }
-
+        const trueActivityTab = document.getElementById("activity-tab"),
+                activityTitle = document.getElementById("activity-tab-title");
+        if(currentActivities.length == 0)
+            trueActivityTab.classList.remove("show-activity-tab");
         let activitiesAvailable = (currentActivities.length != 0) ? true : false; // considers continuing activities
         const fragment = document.createDocumentFragment(), // limit reflows
                 maxAmount = 6 - currentActivities.length; // 6 being the maximum amount of icons onscreen - the ones currently on display
@@ -73,9 +76,9 @@ function parseLanyard2(payload){
                 let source = `${CONFIG.resources_location}missing-file.png`;
                 if(typeof activity.assets !== "undefined" && typeof activity.assets.large_image !== "undefined")
                     source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activity.application_id)}/${encodeURIComponent(activity.assets.large_image)}.png`;
-                if(activity.name == "Visual Studio Code" && activities.large_text == "Idling") // special case
+                if(activity.name == "Visual Studio Code" && (activity.assets.large_text == "Idling")) // special case
                     source = `${CONFIG.resources_location}vsc.png`;
-                if(CONFIG.imagery[activity.name]) // replace with a custom icon for cosmetic or replacement purposes
+                else if(CONFIG.imagery[activity.name]) // replace with a custom icon for cosmetic or replacement purposes
                     source = `${CONFIG.resources_location}${CONFIG.imagery[activity.name]}`;
                 currentActivities.push(identifier);
                 activitiesAvailable = true;
@@ -90,8 +93,6 @@ function parseLanyard2(payload){
             }
         }
         document.getElementById("activity-tab-feed").appendChild(fragment);
-        const trueActivityTab = document.getElementById("activity-tab"),
-                activityTitle = document.getElementById("activity-tab-title");
         if(activitiesAvailable){
             trueActivityTab.style.display = "flex";
             trueActivityTab.classList.add("show-activity-tab");
