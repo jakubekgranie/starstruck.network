@@ -1,121 +1,136 @@
-body{
+body {
     font-size: 16px;
 }
-code{
+
+code {
     background-color: rgba(24, 24, 24, 0.75);
     padding: 0.1rem 0.2rem;
     border-radius: 0.25rem;
 }
-.body-container{
+
+.body-container {
     padding: 3rem;
     width: calc(100vw - 6rem);
     height: calc(100vh - 6rem);
     background-size: 12px 12px;
-    background-image: radial-gradient(circle, #0e0e0e 1px, rgb(0, 0, 0) 1px);
+    background-image: radial-gradient(circle, #0e0e0e 1px, #000000 1px);
     position: relative;
     display: flex;
 }
 
-.no-margin{
+.no-margin {
     margin: 0
 }
 
-.flex{
+.flex {
     display: flex;
 }
-.flex-space-between{
+
+.flex-space-between {
     justify-content: space-between;
 }
 
-#star{
+#star {
     font: 0.6rem monospace;
     letter-spacing: 0.05rem;
     text-align: center;
-    filter: drop-shadow(0px 0px 0.25rem red);
-    text-shadow: 0 0 0.75rem blueviolet;
+    filter: drop-shadow(0px 0px 0.25rem grey);
+    text-shadow: 0 0 0.75rem mintcream;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    white-space: nowrap;
     user-select: none;
 }
-[id^="unit-"]{
+
+[id^="unit-"],
+.name-header-random {
     transition: color 0.15s 0.15s;
-    color: #C41571;
+    color: #474747;
 }
 
-.sidebar{
+.sidebar {
     padding: 1rem 0;
     /*border: 3px red solid;*/
     border-radius: 0.375rem;
     font-family: ui-sans-serif, system-ui, Roboto;
 }
-.sidebar-member{
+
+.sidebar-member {
     height: fit-content;
     color: white;
     max-width: 24.5rem;
 }
-.block-hyperlink{
+
+.block-hyperlink {
     text-decoration: none;
 }
-.sidebar-decor{
+
+.sidebar-decor {
     padding: 1.25rem;
     border-radius: 0.85rem;
 }
-.sidebar-image-decor{
+
+.sidebar-image-decor {
     border-radius: 0.4432432432em;
 }
-.spotify-tab{
-    border: 3px solid #8A0F50;
+
+.spotify-tab {
+    border: 3px solid #31AD5B;
+    background-image: linear-gradient(to right bottom, rgba(49, 173, 91, 0.2), rgba(48, 164, 87, 0.2), rgba(47, 156, 83, 0.2), rgba(46, 147, 80, 0.2), rgba(45, 139, 76, 0.2), rgba(68, 122, 55, 0.2), rgba(77, 105, 40, 0.2), rgba(80, 88, 30, 0.2), rgba(78, 61, 23, 0.2), rgba(62, 38, 24, 0.2), rgba(37, 21, 20, 0.2), rgba(0, 0, 0, 0.2));
     /*box-shadow: 0px 0px 18px 6px #330214;*/
     backdrop-filter: blur(0.04rem);
     min-width: 18rem;
     margin-top: 1rem;
+    transition: 0.25s ease-in-out;
 }
-.spotify-tab-gradient-1{
-    background-image: linear-gradient(to right bottom, rgba(146, 15, 84, 0.2), rgba(121, 10, 65, 0.2), rgba(96, 7, 48, 0.2), rgba(72, 4, 32, 0.2), rgba(49, 2, 18, 0.2));
-}
-.spotify-tab-gradient-2{
-    background-image: linear-gradient(30deg,rgba(241, 255, 250, 0.2),rgba(238, 250, 238, 0.2),rgba(241, 243, 225, 0.2),rgba(247, 234, 214, 0.2),rgba(253, 225, 210, 0.2),rgba(254, 223, 205, 0.2),rgb(255, 219, 196, 0.2),rgba(255, 217, 189, 0.2),rgba(239, 225, 174, 0.2),rgba(208, 236, 177, 0.2),rgba(158, 245, 199, 0.2),rgba(96, 251, 241, 0.2));
-}
-#spotify-tab-album-art{
+
+#spotify-tab-album-art {
     width: 6.25rem;
     height: 6.25rem;
-    margin-right: 1.6rem; 
-    box-shadow: #0e0e0e 0 0 2rem;
+    margin-right: 1.6rem;
+    filter: drop-shadow(#0e0e0e 0 0 1.35rem);
 }
-#spotify-tab-header{
+
+#spotify-tab-header {
     font-size: 1.1rem;
 }
-.spotify-tab-datablock{
+
+.spotify-tab-datablock {
     flex-direction: row;
     align-items: center;
     margin-top: 1.25rem;
 }
-.spotify-tab-subtext{
+
+.spotify-tab-subtext {
     margin: 0;
 }
-.flex-column{
+
+.flex-column {
     flex-direction: column;
 }
-.spotify-tab-textblock{
+
+.spotify-tab-textblock {
     min-height: 6.25rem;
     justify-content: center;
-    
+
 }
-#spotify-tab-title{
+
+#spotify-tab-title {
     font-size: 1.05rem;
     margin-bottom: 0.7rem;
 }
-#spotify-tab-author{
+
+#spotify-tab-author {
     margin-bottom: 0.07rem;
 }
-.spotify-tab-smalltext{
+
+.spotify-tab-smalltext {
     text-overflow: ellipsis;
     font-size: 0.9rem;
 }
-#activity-tab{
+
+#activity-tab {
     width: fit-content;
     max-height: 0.85rem;
     transition: 0.3s ease-in-out 0.1s;
@@ -126,54 +141,67 @@ code{
     margin-left: auto;
     overflow: hidden;
 }
-.show-activity-tab{
+
+.show-activity-tab {
     max-height: calc(6.6rem + 3px) !important;
 }
-#activity-tab-feed{
+
+#activity-tab-feed {
     margin: 0 auto;
     gap: 0.6rem;
     flex-wrap: wrap;
 }
+
 @keyframes show {
-    from{
+    from {
         opacity: 0;
     }
-    to{
+
+    to {
         opacity: 1;
     }
 }
-.activity-tab-icon{
+
+.activity-tab-icon {
     width: 3rem;
     filter: drop-shadow(0 0 0.45rem rgba(128, 128, 128, 0.15));
     animation: show 0.25s ease-in-out;
     transition: 0.3s ease-in-out;
 }
-.transparent{
+
+.transparent {
     opacity: 0;
 }
-.hidden-activity-tab-icon{
+
+.hidden-activity-tab-icon {
     margin-right: -3.5rem;
     filter: none;
 }
-.hidden-activity-tab-icon:last-of-type{
+
+.hidden-activity-tab-icon:last-of-type {
     margin-left: -3.5rem;
     margin-right: unset;
 }
-.hidden-activity-tab-icon:only-of-type{
+
+.hidden-activity-tab-icon:only-of-type {
     margin: 0 auto;
 }
+
 @keyframes blink {
-    25%{
+    25% {
         opacity: 0;
     }
-    50%{
+
+    50% {
         opacity: 1;
     }
-    75%{
+
+    75% {
         opacity: 0;
     }
 }
-#activity-tab-title{
+
+#activity-tab-title {
     font: 0.85rem monospace;
     font-weight: 900;
     margin-bottom: 1.25rem;
@@ -183,38 +211,51 @@ code{
     transition-delay: 0.1s;
 }
 
-@keyframes colorChange0{
-    0%{
+@keyframes colorChange0 {
+    0% {
         color: #7ff7b7;
     }
-    25%{
+
+    25% {
         color: #7ff7b7;
     }
-    50%{
+
+    50% {
         color: #ffb689;
         font-weight: 900;
     }
-    75%{
+
+    75% {
         color: #c3e99a;
     }
-    100%{
+
+    100% {
         color: #7ff7b7;
     }
 }
-.star-color0{
+
+.star-color0 {
     animation: colorChange0 0.75s ease-in-out;
 }
-.name-header{
+
+.name-header {
     font: 3rem Outfit;
     letter-spacing: 0.2rem;
 }
-.name-header-subtext{
+
+.name-header-subtext {
     font: 1.2rem monospace;
     margin-top: 0.3rem;
 }
-#name-header-underscore{
+
+#name-header-underscore {
     opacity: 0;
 }
-.blink-forever{
+
+.blink-forever {
     animation: blink 1.6s ease-in-out infinite;
+}
+
+.limit-wrapping {
+    white-space: nowrap;
 }

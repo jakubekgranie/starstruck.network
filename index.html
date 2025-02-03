@@ -13,7 +13,13 @@
         <meta name='HandheldFriendly' content='True'>
         <meta name='copyright' content='Jakub Namyślak'>
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.lanyard.rest wss://api.lanyard.rest/socket https://api.genius.com/search; img-src 'self' https://i.scdn.co https://cdn.discordapp.com; script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' https://fonts.googleapis.com/ 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='; font-src https://fonts.gstatic.com">
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'self'; 
+            connect-src 'self' https://api.lanyard.rest wss://api.lanyard.rest/socket; 
+            img-src 'self' https://i.scdn.co https://cdn.discordapp.com; 
+            script-src 'self' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; 
+            style-src 'self' https://fonts.googleapis.com/ 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='; 
+            font-src https://fonts.gstatic.com">
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
@@ -29,12 +35,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
-        <link rel="prefetch" href="\Visual assets\wuwa.png">
-        <link rel="prefetch" href="\Visual assets\vsc.png">
-        <link rel="prefetch" href="\Visual assets\spotify.png">
-        <link rel="prefetch" href="\Visual assets\vs2022.png">
+        <link rel="prefetch" href="/Visual assets/wuwa.png">
+        <link rel="prefetch" href="/Visual assets/vsc.png">
+        <link rel="prefetch" href="/Visual assets/spotify.png">
+        <link rel="prefetch" href="/Visual assets/vs2022.png">
 
-        <link href="css.css" rel="stylesheet">
+        <link href="css.css" rel="stylesheet" media="all">
         <script src="lanyard.js" type="text/javascript"></script>
         <script src="starAnimation.js" type="text/javascript"></script>
         
@@ -42,7 +48,7 @@
     </head>
     <body class="no-margin">
         <section class="body-container flex-space-between">
-            <div id="star">
+            <div id="star" class="limit-wrapping">
                         <span id="unit-0-49">-</span><br>
                         <span id="unit-1-49">-</span><span id="unit-1-50">=</span><br>
                         <span id="unit-2-49">=</span><span id="unit-2-50">=</span><br>
@@ -101,7 +107,7 @@
                 <div></div>
                 <div class="sidebar-member flex">
                     <div class="flex flex-column">
-                        <h1 class="name-header no-margin">// <span id="name-header-feed">starstruck</span><span id="name-header-underscore" class="transparent">_</span></h1>
+                        <h1 class="name-header no-margin limit-wrapping">// <span id="name-header-feed"></span><span id="name-header-underscore" class="transparent">_</span></h1>
                         <p class="name-header-subtext no-margin"><strong>INF.03</strong> / <strong>INF.04</strong> student</p>
                     </div>
                     <div class="flex">
@@ -117,10 +123,10 @@
                         <div id="activity-tab-feed" class="flex flex-jc-center"></div>
                     </div>
                     <a id="spotify-tab-hyperlink" target="_blank" class="sidebar-member block-hyperlink">
-                        <div class="spotify-tab spotify-tab-gradient-1 sidebar-decor">
+                        <div id="spotify-tab-gradient-block" class="spotify-tab sidebar-decor">
                             <h3 id="spotify-tab-header" class="no-margin">Spotify Fetch Module</h3>
                             <div class="flex spotify-tab-datablock">
-                                <img src="Visual assets/spotify.png" id="spotify-tab-album-art" class="spotify-image-decor" alt="Spotify album art">
+                                <img src="Visual assets/spotify.png" id="spotify-tab-album-art" alt="Spotify album art">
                                 <div class="spotify-tab-textblock flex flex-column flex-jc-center">
                                     <h4 id="spotify-tab-title" class="no-margin">By <strong>jakubekgranie</strong></h4>
                                     <p id="spotify-tab-author" class="no-margin spotify-tab-smalltext">Using <code>lanyard2()</code></p>
