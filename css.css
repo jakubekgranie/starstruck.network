@@ -259,3 +259,6 @@ code {
 .limit-wrapping {
     white-space: nowrap;
 }
+#spotify-tab-count{
+    transition: 0.15s ease-in-out;
+}
