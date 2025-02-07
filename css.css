@@ -40,6 +40,9 @@ code {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.disallow-selection {
     user-select: none;
 }
 
@@ -89,7 +92,7 @@ code {
     width: 6.25rem;
     height: 6.25rem;
     margin-right: 1.6rem;
-    filter: drop-shadow(#0e0e0e 0 0 1.35rem);
+    filter: drop-shadow(#0e0e0e 0 0 0.75rem);
 }
 
 #spotify-tab-header {
@@ -259,6 +262,45 @@ code {
 .limit-wrapping {
     white-space: nowrap;
 }
-#spotify-tab-count{
+
+#spotify-tab-count {
     transition: 0.15s ease-in-out;
+}
+
+#directory {
+    font-family: "Roboto Mono";
+}
+
+#directory-header {
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0.6rem;
+}
+
+.directory-description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#directory-feed {
+    font-family: monospace;
+}
+
+#directory-random {
+    background-color: white;
+    color: black;
+}
+
+#social-icons {
+    gap: 0.65rem;
+    margin-bottom: 0.275rem;
+}
+
+.social-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+#discord {
+    cursor: pointer;
 }

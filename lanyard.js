@@ -86,10 +86,13 @@ function parseLanyard2(payload) { // the main websocket operator
 
     }
     else {
+        countData = ["", 0, 1];
+        document.getElementById("spotify-tab-count").style = null;
         const defaultElementContent = ["spotify.png", "N/A", null, "Listening to Spotify", "Player stopped", "🖸 N/A"];
+        document.getElementById("spotify-tab-gradient-block").style = null;
         document.getElementById(`${classHeader}${elementSuffixes[0]}`).src = `${CONFIG.resources_location}${defaultElementContent[0]}`;
         document.getElementById(`${classHeader}${elementSuffixes[1]}`).innerHTML = defaultElementContent[1];
-        document.getElementById(`${classHeader}${elementSuffixes[2]}`).href = defaultElementContent[2];
+        document.getElementById(`${classHeader}${elementSuffixes[2]}`).removeAttribute("href");
         for (let i = 3; i < elementSuffixes.length; i++)
             document.getElementById(`${classHeader}${elementSuffixes[i]}`).innerHTML = defaultElementContent[i];
     }
@@ -135,13 +138,13 @@ function parseLanyard2(payload) { // the main websocket operator
                     if (source === `${CONFIG.resources_location}missing-file.png`)
                         values.push("image-rendering: pixelated;");
                     activitiesAvailable = true;
-                    for(let j = 0; j < toIterate[1].length; j++)
+                    for (let j = 0; j < toIterate[1].length; j++)
                         activityIcon.setAttribute(toIterate[0][j], toIterate[1][j]);
                     currentActivities.push(identifier);
                     fragment.appendChild(activityIcon);
                 }
                 else { // update present elements' images
-                    activityIcon = document.getElementById(currentActivities[i]);
+                    activityIcon = document.getElementById(identifier);
                     if (activityIcon.src != source && !CONFIG.imagery[activityIcon.alt]) // ensure the activity does not have a custom profile
                         activityIcon.src = source;
                     activityIcon.alt = activity.name;
@@ -211,4 +214,5 @@ async function lanyard2() {
         console.warn("[Lanyard2]\n", event);
     };
 }
+
 document.addEventListener("DOMContentLoaded", lanyard2);
