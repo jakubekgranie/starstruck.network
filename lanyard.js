@@ -3,7 +3,7 @@ var ColorJS = function (r) { "use strict"; var a = (r, a) => { var t = r.map((r 
 
 const CONFIG = {
     bannedActivities: ["Custom Status", "Spotify"],
-    resources_location: "\\Visual assets\\",
+    resources_location: "\\Visual%20assets\\",
     imagery: { // custom activity icons
         "Wuthering Waves": "wuwa.png",
         "Microsoft Visual Studio": "vs2022.png",

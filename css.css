@@ -92,7 +92,7 @@ code {
     width: 6.25rem;
     height: 6.25rem;
     margin-right: 1.6rem;
-    filter: drop-shadow(#0e0e0e 0 0 0.75rem);
+    filter: drop-shadow(0 0 0.75rem #0e0e0e);
 }
 
 #spotify-tab-header {
