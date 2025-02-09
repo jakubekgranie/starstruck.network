@@ -9,6 +9,8 @@ const CONFIG = {
         "Microsoft Visual Studio": "vs2022.png",
         "VALORANT": "valorant.png",
         "CurseForge": "curseforge.png",
+        "Stardew Valley": "stardewvalley.png",
+        "Watch Dogs": "watchdogs.png",
     },
     max_length: 41, // max title length
     wrapper_length: 17, // title wrapper length to be substracted from the total
@@ -121,35 +123,35 @@ function parseLanyard2(payload) { // the main websocket operator
             maxAmount = 6 - currentActivities.length; // 6 being the maximum amount of icons onscreen - the ones currently on display
         for (let i = 0; i < activities.length && i < maxAmount; i++) {
             const activity = activities[i], // shorthand
-                identifier = activity.name + (activity.details ? ` - ${activity.details}` : ``); // element's id
-            if (typeof activity.assets !== "undefined") {
-                let source = `${CONFIG.resources_location}missing-file.png`;
-                if (typeof activity.assets.large_image !== "undefined" && activity.assets.large_image.match(/^\d+$/))
-                    source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activity.application_id)}/${encodeURIComponent(activity.assets.large_image)}.png`;
+            identifier = activity.name + (activity.details ? ` - ${activity.details}` : ``); // element's id
+            let source = `${CONFIG.resources_location}missing-file.png`;
+            if (typeof activity.assets !== "undefined"){
                 if (activity.name == "Visual Studio Code" && typeof activity.assets.large_text !== "undefined" && activity.assets.large_text === "Idling") // special case
                     source = `${CONFIG.resources_location}vsc.png`;
-                else if (CONFIG.imagery[activity.name]) // replace with a custom icon for cosmetic or replacement purposes
-                    source = `${CONFIG.resources_location}${CONFIG.imagery[activity.name]}`;
+                else if (typeof activity.assets.large_image !== "undefined" && activity.assets.large_image.match(/^\d+$/))
+                    source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activity.application_id)}/${encodeURIComponent(activity.assets.large_image)}.png`;
+            }
+            else if (CONFIG.imagery[activity.name]) // replace with a custom icon for cosmetic or replacement purposes
+                source = `${CONFIG.resources_location}${CONFIG.imagery[activity.name]}`;
 
-                let activityIcon;
-                if (!currentActivities.includes(identifier)) {
-                    const toIterate = [["src", "alt", "title", "id", "class", "style"], [source, activity.name, identifier, identifier, "activity-tab-icon sidebar-image-decor"]]
-                    activityIcon = document.createElement("img");
-                    if (source === `${CONFIG.resources_location}missing-file.png`)
-                        values.push("image-rendering: pixelated;");
-                    activitiesAvailable = true;
-                    for (let j = 0; j < toIterate[1].length; j++)
-                        activityIcon.setAttribute(toIterate[0][j], toIterate[1][j]);
-                    currentActivities.push(identifier);
-                    fragment.appendChild(activityIcon);
-                }
-                else { // update present elements' images
-                    activityIcon = document.getElementById(identifier);
-                    if (activityIcon.src != source && !CONFIG.imagery[activityIcon.alt]) // ensure the activity does not have a custom profile
-                        activityIcon.src = source;
-                    activityIcon.alt = activity.name;
-                    activityIcon.title = activity.name + (activity.details ? ` - ${activity.details}` : ``);
-                }
+            let activityIcon;
+            if (!currentActivities.includes(identifier)) {
+                const toIterate = [["src", "alt", "title", "id", "class", "style"], [source, activity.name, identifier, identifier, "activity-tab-icon sidebar-image-decor"]]
+                activityIcon = document.createElement("img");
+                if (source === `${CONFIG.resources_location}missing-file.png`)
+                    activityIcon.style.imageRendering = "pixelated";
+                activitiesAvailable = true;
+                for (let j = 0; j < toIterate[1].length; j++)
+                    activityIcon.setAttribute(toIterate[0][j], toIterate[1][j]);
+                currentActivities.push(identifier);
+                fragment.appendChild(activityIcon);
+            }
+            else { // update present elements' images
+                activityIcon = document.getElementById(identifier);
+                if (activityIcon.src != source && !CONFIG.imagery[activityIcon.alt]) // ensure the activity does not have a custom profile
+                    activityIcon.src = source;
+                activityIcon.alt = activity.name;
+                activityIcon.title = activity.name + (activity.details ? ` - ${activity.details}` : ``);
             }
         }
         if (activitiesAvailable) {
