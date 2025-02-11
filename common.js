@@ -1,6 +1,7 @@
 const styles = ["#ffdbc4", "#a0f5c7", "#7ff7b7"];
 
 function animatedStar() {
+    document.getElementsByTagName("html")[0].style.fontSize = `${16 / devicePixelRatio}px`;
     document.getElementById("star").classList.add("star-color0-support");
     for (let i = 0; i < 53; i++)
         for (let j = 0; j < 100; j++) {

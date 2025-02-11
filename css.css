@@ -1,5 +1,5 @@
-body {
-    font-size: 16px;
+html {
+    font-size: 16px; /* fallback */
 }
 
 code {
@@ -14,7 +14,6 @@ code {
     height: calc(100vh - 6rem);
     background-size: 12px 12px;
     background-image: radial-gradient(circle, #0e0e0e 1px, #000000 1px);
-    position: relative;
     display: flex;
 }
 
@@ -36,7 +35,6 @@ code {
     text-align: center;
     filter: drop-shadow(0px 0px 0.25rem grey);
     text-shadow: 0 0 0.75rem mintcream;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -134,15 +132,22 @@ code {
 }
 
 #activity-tab {
-    width: fit-content;
+    
     max-height: 0.85rem;
     transition: 0.3s ease-in-out 0.1s;
     background-color: rgba(138, 138, 138, 0.2);
     display: flex;
     border: 3px lightgrey solid;
     flex: 0 0 auto;
-    margin-left: auto;
+    
     overflow: hidden;
+}
+.auto-left{
+    margin-left: auto;
+}
+
+.fit-width{
+    width: fit-content;
 }
 
 .show-activity-tab {
@@ -301,6 +306,63 @@ code {
     height: 2rem;
 }
 
-#discord {
+.java-button {
     cursor: pointer;
+}
+
+.project-button{
+    font: 1.4rem Outfit;
+}
+.project-button::after, .project-button::before{
+    content: "";
+    width: 2px;
+    height: 2.5rem;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    background-color: black;
+    transform: scaleY(1) translateY(-50%);
+    transition: 0.25s ease-in-out;
+}
+.project-button::after{
+    left: 0;
+}
+.project-button::before{
+    right: 0;
+}
+.project-button:hover::after, .project-button:hover::before{
+    transform: scaleY(0.65) translateY(-80%);
+    top: 50%;
+}
+.project-button-support{
+    border: white 2px solid;
+    padding: 0.75rem 1.35rem;
+}
+
+.project-button-support::after, .project-button-support::before{
+    content: "";
+    width: 5.5rem;
+    height: 2px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    background-color: black;
+    transform: scaleY(1) translateX(-50%);
+    transition: 0.25s ease-in-out 0.115s;
+}
+.project-button-support::after{
+    top: -2px;
+}
+.project-button-support::before{
+    bottom: -2px;
+}
+.project-button-support:hover::after, .project-button-support:hover::before{
+    transform: scaleX(0.65) translateX(-80%);
+    left: 50%;
+}
+.pos-rel{
+    position: relative;
+}
+.pos-abs{
+    position: absolute;
 }

@@ -7,11 +7,15 @@ const CONFIG = {
     imagery: { // custom activity icons
         "Wuthering Waves": "wuwa.png",
         "Microsoft Visual Studio": "vs2022.png",
+        "Visual Studio Code": "vsc.png",
         "VALORANT": "valorant.png",
         "CurseForge": "curseforge.png",
         "Stardew Valley": "stardewvalley.png",
         "Watch Dogs": "watchdogs.png",
     },
+    fallbackOnly: [
+        "Visual Studio Code"
+    ],
     max_length: 41, // max title length
     wrapper_length: 17, // title wrapper length to be substracted from the total
     debounceTimeout: 250
@@ -125,15 +129,12 @@ function parseLanyard2(payload) { // the main websocket operator
             const activity = activities[i], // shorthand
             identifier = activity.name + (activity.details ? ` - ${activity.details}` : ``); // element's id
             let source = `${CONFIG.resources_location}missing-file.png`;
-            if (typeof activity.assets !== "undefined"){
-                if (activity.name == "Visual Studio Code" && typeof activity.assets.large_text !== "undefined" && activity.assets.large_text === "Idling") // special case
-                    source = `${CONFIG.resources_location}vsc.png`;
-                else if (typeof activity.assets.large_image !== "undefined" && activity.assets.large_image.match(/^\d+$/))
-                    source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activity.application_id)}/${encodeURIComponent(activity.assets.large_image)}.png`;
-            }
-            else if (CONFIG.imagery[activity.name]) // replace with a custom icon for cosmetic or replacement purposes
+            if (activity.assets?.large_image?.match(/^\d+$/))
+                source = `https://cdn.discordapp.com/app-assets/${encodeURIComponent(activity.application_id)}/${encodeURIComponent(activity.assets.large_image)}.png`;
+            if (activity.name == "Visual Studio Code" && (activity.assets?.large_text ?? "") === "Idling") // special case
+                source = `${CONFIG.resources_location}vsc.png`;
+            if (CONFIG.imagery[activity.name] && (!CONFIG.fallbackOnly.includes(activity.name) || typeof activity.assets?.large_image === "undefined")) // replace with a custom icon for cosmetic or fallback purposes
                 source = `${CONFIG.resources_location}${CONFIG.imagery[activity.name]}`;
-
             let activityIcon;
             if (!currentActivities.includes(identifier)) {
                 const toIterate = [["src", "alt", "title", "id", "class", "style"], [source, activity.name, identifier, identifier, "activity-tab-icon sidebar-image-decor"]]
