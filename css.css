@@ -29,15 +29,27 @@ code {
     justify-content: space-between;
 }
 
+@keyframes starAnimation {
+    to{
+        background-position: -30rem -30rem, 0 0;
+    }
+}
 #star {
     font: 0.6rem monospace;
     letter-spacing: 0.05rem;
     text-align: center;
-    filter: drop-shadow(0px 0px 0.25rem grey);
-    text-shadow: 0 0 0.75rem mintcream;
+    filter: drop-shadow(0px 0px 0.25rem #ffdbc4);
+    text-shadow: 0 0 0.75rem #a0f5c7;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: linear-gradient(to right bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #d8e9ae, #efe1ae, #efe1ae, #efe1ae, #efe1ae, #d8e9ae, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) no-repeat 30rem 30rem, #7ff7b7;
+    background-size: 45rem 45rem;
+    animation: starAnimation 1.5s ease forwards;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -o-text-fill-color: transparent;
 }
 
 .disallow-selection {
@@ -334,12 +346,12 @@ code {
     transform: scaleY(0.65) translateY(-80%);
     top: 50%;
 }
-.project-button-support{
+#project-button-support{
     border: white 2px solid;
     padding: 0.75rem 1.35rem;
 }
 
-.project-button-support::after, .project-button-support::before{
+#project-button-support::after, #project-button-support::before{
     content: "";
     width: 5.5rem;
     height: 2px;
@@ -350,13 +362,13 @@ code {
     transform: scaleY(1) translateX(-50%);
     transition: 0.25s ease-in-out 0.115s;
 }
-.project-button-support::after{
+#project-button-support::after{
     top: -2px;
 }
-.project-button-support::before{
+#project-button-support::before{
     bottom: -2px;
 }
-.project-button-support:hover::after, .project-button-support:hover::before{
+#project-button-support:hover::after, #project-button-support:hover::before{
     transform: scaleX(0.65) translateX(-80%);
     left: 50%;
 }
