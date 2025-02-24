@@ -1,4 +1,4 @@
-html {
+:root{
     font-size: 16px; /* fallback */
 }
 
@@ -7,11 +7,10 @@ code {
     padding: 0.1rem 0.2rem;
     border-radius: 0.25rem;
 }
-
 .body-container {
-    padding: 3rem;
     width: calc(100vw - 6rem);
     height: calc(100vh - 6rem);
+    padding: 3rem;
     background-size: 12px 12px;
     background-image: radial-gradient(circle, #0e0e0e 1px, #000000 1px);
     display: flex;
@@ -37,13 +36,12 @@ code {
 #star {
     font: 0.6rem monospace;
     letter-spacing: 0.05rem;
-    text-align: center;
     filter: drop-shadow(0px 0px 0.25rem #ffdbc4);
-    text-shadow: 0 0 0.75rem #a0f5c7;
+    text-shadow: 0 0 0.75rem #7dffbb;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to right bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #d8e9ae, #efe1ae, #efe1ae, #efe1ae, #efe1ae, #d8e9ae, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) no-repeat 30rem 30rem, #7ff7b7;
+    background: linear-gradient(to right bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #d8e9ae, #efe1ae, #efe1ae, #efe1ae, #efe1ae, #d8e9ae, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) no-repeat 30rem 30rem, #7dffbb;
     background-size: 45rem 45rem;
     animation: starAnimation 1.5s ease forwards;
     background-clip: text;
@@ -71,8 +69,10 @@ code {
 
 .sidebar-member {
     height: fit-content;
-    color: white;
     max-width: 24.5rem;
+}
+.c-white{
+    color: white;
 }
 
 .block-hyperlink {
@@ -111,8 +111,10 @@ code {
 
 .spotify-tab-datablock {
     flex-direction: row;
-    align-items: center;
     margin-top: 1.25rem;
+}
+.flex-ai-center{
+    align-items: center;
 }
 
 .spotify-tab-subtext {
@@ -126,7 +128,6 @@ code {
 .spotify-tab-textblock {
     min-height: 6.25rem;
     justify-content: center;
-
 }
 
 #spotify-tab-title {
@@ -144,15 +145,12 @@ code {
 }
 
 #activity-tab {
-    
     max-height: 0.85rem;
     transition: 0.3s ease-in-out 0.1s;
     background-color: rgba(138, 138, 138, 0.2);
     display: flex;
     border: 3px lightgrey solid;
     flex: 0 0 auto;
-    
-    overflow: hidden;
 }
 .auto-left{
     margin-left: auto;
@@ -231,33 +229,6 @@ code {
     transition-delay: 0.1s;
 }
 
-@keyframes colorChange0 {
-    0% {
-        color: #7ff7b7;
-    }
-
-    25% {
-        color: #7ff7b7;
-    }
-
-    50% {
-        color: #ffb689;
-        font-weight: 900;
-    }
-
-    75% {
-        color: #c3e99a;
-    }
-
-    100% {
-        color: #7ff7b7;
-    }
-}
-
-.star-color0 {
-    animation: colorChange0 0.75s ease-in-out;
-}
-
 .name-header {
     font: 3rem Outfit;
     letter-spacing: 0.2rem;
@@ -268,10 +239,6 @@ code {
     margin-top: 0.3rem;
 }
 
-#name-header-underscore {
-    opacity: 0;
-}
-
 .blink-forever {
     animation: blink 1.6s ease-in-out infinite;
 }
@@ -280,7 +247,7 @@ code {
     white-space: nowrap;
 }
 
-#spotify-tab-count {
+.default-transition {
     transition: 0.15s ease-in-out;
 }
 
@@ -330,7 +297,7 @@ code {
     width: 2px;
     height: 2.5rem;
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     top: 50%;
     background-color: black;
     transform: scaleY(1) translateY(-50%);
@@ -349,6 +316,7 @@ code {
 #project-button-support{
     border: white 2px solid;
     padding: 0.75rem 1.35rem;
+    z-index: 2;
 }
 
 #project-button-support::after, #project-button-support::before{
@@ -356,7 +324,7 @@ code {
     width: 5.5rem;
     height: 2px;
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     left: 50%;
     background-color: black;
     transform: scaleY(1) translateX(-50%);
@@ -377,4 +345,49 @@ code {
 }
 .pos-abs{
     position: absolute;
+}
+#repos{
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(0.15rem);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, rgb(14, 27, 37, 0.3) 0%, rgb(42, 69, 75, 0.3) 50%, rgb(41, 72, 97, 0.3) 100%);
+    padding: 5rem 22.5rem;
+    box-sizing: border-box;
+}
+.repo{
+    border: solid 3.5px;
+    width: 16.4rem;
+    backdrop-filter: blur(0.04rem);
+    background-color: rgba(20, 20, 20, 0.65);
+    padding-bottom: 1.25rem;
+    border-radius: 0.8rem;
+}
+.snet{
+    border-color: #CFE8C5;
+}
+.repo-banner{
+    width: 100%;
+    height: 6.5rem;
+    border-radius: 0.45rem;
+}
+.repo-badges{
+    margin-bottom: 1rem;
+    gap: 0.4rem;
+}
+.repo-badge{
+    width: 1.7rem;
+    height: 1.7rem;
+}
+.repo-title{
+    font: 1.25rem Outfit;
+    margin: 1rem 0;
+}
+.repo-desc{
+    margin: 0 2.85rem;
+    font: 0.925rem Outfit;
+    font-weight: 300;
+    text-align: center;
 }

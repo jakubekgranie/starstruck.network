@@ -46,7 +46,7 @@ const contents = [
     ["/about-me", "starstruck", ["Try searching me up.", "I recommend the GitHub.", "Hello.", "Does it ring a bell?", "Hey, that's me!"], ["about-me", true], -1, 0],
     ["/socials", "socials", ["More of me, elsewhere.", "How about a game of Team Fortress 2?", "See more of my projects at my GitHub.", "For inquiries, contact me via Discord.", "By the way, these are my only socials."], ["social-icons", true], -1, 0],
     ["/discord", "discordapp", ["My only Discord: <strong>jakubekgranie</strong>.<br>Please state the purpose of Your visit first; I might dismiss Your request otherwise."], ["discord", false], -1, 5000],
-    ["/projects", "repos", ["The best fruits of the loom.", "Handpicked stuff from my github."], ["project-button-support", true], -1, 0]
+    ["/projects", "repos", ["The best fruits of the loom.", "Handpicked stuff from my GitHub.", "Check out what I've been working on!"], ["project-button-support", true], -1, 0]
 ];
 let lock = false, // used for lingering
     currentInterval = null, // for optimized timed recursion
