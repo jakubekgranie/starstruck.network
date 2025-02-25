@@ -68,8 +68,10 @@ code {
 }
 
 .sidebar-member {
-    height: fit-content;
     max-width: 24.5rem;
+}
+.adjusted-height{
+    height: fit-content;
 }
 .c-white{
     color: white;
@@ -127,6 +129,8 @@ code {
 
 .spotify-tab-textblock {
     min-height: 6.25rem;
+}
+.flex-jc-center{
     justify-content: center;
 }
 
@@ -352,9 +356,10 @@ code {
     backdrop-filter: blur(0.15rem);
     top: 0;
     left: 0;
+    gap: 3rem;
     z-index: 1;
     background-image: linear-gradient(to bottom, rgb(14, 27, 37, 0.3) 0%, rgb(42, 69, 75, 0.3) 50%, rgb(41, 72, 97, 0.3) 100%);
-    padding: 5rem 22.5rem;
+    padding: 5rem 0;
     box-sizing: border-box;
 }
 .repo{
@@ -368,10 +373,13 @@ code {
 .snet{
     border-color: #CFE8C5;
 }
+.scmix{
+    border-color: #B18419;
+}
 .repo-banner{
     width: 100%;
     height: 6.5rem;
-    border-radius: 0.45rem;
+    border-radius: 0.6rem 0.6rem 0 0;
 }
 .repo-badges{
     margin-bottom: 1rem;
