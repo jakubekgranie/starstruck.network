@@ -28,7 +28,7 @@ let currentActivities = [],
     countData = ["", 0, 1];
 
 function parseLanyard2(payload) { // the main websocket operator
-    console.log("[Lanyard2]\n", payload);
+    // console.log("[Lanyard2]\n", payload);
     if (payload.listening_to_spotify) { // spotify tab section
         const spotify = payload.spotify, // prevent songs from mixing
             elementData = [spotify.album_art_url, payload.spotify.artist, "https://open.spotify.com/track/", "Listening to Spotify", spotify.song, `🖸 ${spotify.album}`];
@@ -139,8 +139,6 @@ function parseLanyard2(payload) { // the main websocket operator
             if (!currentActivities.includes(identifier)) {
                 const toIterate = [["src", "alt", "title", "id", "class", "style"], [source, activity.name, identifier, identifier, "activity-tab-icon sidebar-image-decor"]]
                 activityIcon = document.createElement("img");
-                if (source === `${CONFIG.resources_location}missing-file.png`)
-                    activityIcon.style.imageRendering = "pixelated";
                 activitiesAvailable = true;
                 for (let j = 0; j < toIterate[1].length; j++)
                     activityIcon.setAttribute(toIterate[0][j], toIterate[1][j]);
@@ -154,6 +152,10 @@ function parseLanyard2(payload) { // the main websocket operator
                 activityIcon.alt = activity.name;
                 activityIcon.title = activity.name + (activity.details ? ` - ${activity.details}` : ``);
             }
+            if (source === `${CONFIG.resources_location}missing-file.png`)
+                activityIcon.style.imageRendering = "pixelated";
+            else if(activityIcon.style.imageRendering == "pixelated")
+                activityIcon.style.imageRendering = null;
         }
         if (activitiesAvailable) {
             document.getElementById("activity-tab-feed").appendChild(fragment);

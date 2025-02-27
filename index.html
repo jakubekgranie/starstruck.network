@@ -21,32 +21,30 @@
             style-src 'self' https://fonts.googleapis.com/ 'sha256-dfnsc0O4xGY+3WIrHfg9cMgahQy4vSIsKgmkvX6kc4I='; 
             font-src https://fonts.gstatic.com">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
-        <link rel="manifest" href="/site.webmanifest?v=6">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg?v=5" color="#00d1c4">
-        <link rel="shortcut icon" href="/favicon.ico?v=5">
-        <meta name="msapplication-TileColor" content="#00aba9">
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=5">
-        <meta name="theme-color" content="#ffffff">
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="s.net" />
+        <link rel="manifest" href="/site.webmanifest" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-        <link rel="prefetch" href="/Visual%20assets/wuwa.png">
-        <link rel="prefetch" href="/Visual%20assets/vsc.png">
-        <link rel="prefetch" href="/Visual%20assets/spotify.png">
-        <link rel="prefetch" href="/Visual%20assets/spotify-paddingless.png">
-        <link rel="prefetch" href="/Visual%20assets/vs2022.png">
-        <link rel="prefetch" href="/Visual%20assets/valorant.png">
-        <link rel="prefetch" href="/Visual%20assets/curseforge.png">
-        <link rel="prefetch" href="/Visual%20assets/blackhole.jpg">
-        <link rel="prefetch" href="/Visual%20assets/internet.png">
-        <link rel="prefetch" href="/Visual%20assets/banner.png">
-        <link rel="prefetch" href="/Visual%20assets/desktop.png">
-        <link rel="prefetch" href="/Visual%20assets/colormixer.jpg">
+        <link rel="prefetch" as="image" href="/Visual%20assets/wuwa.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/vsc.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/spotify.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/spotify-paddingless.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/vs2022.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/valorant.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/curseforge.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/blackhole.jpg">
+        <link rel="prefetch" as="image" href="/Visual%20assets/internet.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/banner.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/desktop.png">
+        <link rel="prefetch" as="image" href="/Visual%20assets/colormixer.jpg">
+        <link rel="prefetch" as="image" href="/Visual%20assets/webdev.png">
 
         <link href="css.css" rel="stylesheet" media="all">
         <script src="lanyard.js"></script>
@@ -113,11 +111,11 @@
                                                                   
             </div>
             <section class="sidebar flex flex-space-between flex-column">
-                <div id="directory" class="sidebar-member adjusted-height c-white">
+                <div id="directory" class="sidebar-member adjusted-height c-white pos-rel z-3">
                     <h2 id="directory-header" class="no-margin">/home</h2>
                     <p class="no-margin directory-description"><span id="directory-lesser-header">core.desc():</span><br><span id="directory-feed"><noscript><strong>Notice: this document requires JavaScript enabled to work. Please enable it in Your browser.</strong><br><br></noscript> <i><strong>© 2025 Jakub Namyślak</strong>. All rights reserved.</i><br>Some asset parts are provided courtesy of <strong>Freepik</strong> and <strong>Flaticon</strong>.</span><b id="directory-random"></b></p>
                 </div>
-                <div class="sidebar-member adjusted-height c-white flex">
+                <div class="sidebar-member adjusted-height c-white flex pos-rel z-3">
                     <div class="flex flex-column">
                         <div id="social-icons" class="flex">
                             <a href="https://github.com/jakubekgranie" target="_blank" title="My GitHub">
@@ -155,7 +153,7 @@
                         <div id="activity-tab-feed" class="flex flex-jc-center"></div>
                     </div>
                     <!-- make it smooth -->
-                    <a id="spotify-tab-hyperlink" href target="_blank" class="sidebar-member adjusted-height c-white block-hyperlink">
+                    <a id="spotify-tab-hyperlink" target="_blank" class="sidebar-member adjusted-height c-white block-hyperlink">
                         <div id="spotify-tab-gradient-block" class="spotify-tab sidebar-decor">
                             <div class="flex flex-space-between">
                                 <h3 id="spotify-tab-header" class="no-margin">Spotify Fetch Module</h3>
@@ -174,8 +172,8 @@
                 </div>
             </section>
         </section>
-        <section id="repos" class="pos-abs flex flex-jc-center flex-ai-center">
-            <a class="repo snet default-transition fit-width flex flex-column flex-ai-center adjusted-height block-hyperlink" href="https://github.com/jakubekgranie/starstruck.network" target="_blank">
+        <section id="repos" class="pos-abs flex flex-jc-center flex-ai-center disabled transparent">
+            <a id="snet" class="repo default-transition fit-width flex flex-column flex-ai-center adjusted-height block-hyperlink transparent" href="https://github.com/jakubekgranie/starstruck.network" target="_blank">
                 <img src="Visual%20assets/blackhole.jpg" class="repo-banner" alt="starstruck.network banner">
                 <h3 class="no-margin repo-title c-white">starstruck.network</h3>
                 <div class="flex repo-badges">
@@ -184,7 +182,7 @@
                 </div>
                 <p class="no-margin repo-desc c-white">This site's public repository and the current focus of mine as of now.</p>
             </a>
-            <a class="repo scmix default-transition fit-width flex flex-column flex-ai-center adjusted-height block-hyperlink" href="https://github.com/jakubekgranie/s.net-color-mixer" target="_blank">
+            <a id="scmix" class="repo default-transition fit-width flex flex-column flex-ai-center adjusted-height block-hyperlink transparent" href="https://github.com/jakubekgranie/s.net-color-mixer" target="_blank">
                 <img src="Visual%20assets/colormixer.jpg" class="repo-banner" alt="s.net Color Mixer banner">
                 <h3 class="no-margin repo-title c-white">s.net Color Mixer</h3>
                 <div class="flex repo-badges">

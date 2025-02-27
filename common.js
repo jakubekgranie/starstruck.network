@@ -34,7 +34,7 @@ function animatedName() {
         2 => possible descriptions;
         3 =>
             3.1 => the target id
-            3.2 => override mouseover with click
+            3.2 => override click with mouseover
         4 => last description used
         5 => lingering time
 */
@@ -46,7 +46,9 @@ const contents = [
     ["/about-me", "starstruck", ["Try searching me up.", "I recommend the GitHub.", "Hello.", "Does it ring a bell?", "Hey, that's me!"], ["about-me", true], -1, 0],
     ["/socials", "socials", ["More of me, elsewhere.", "How about a game of Team Fortress 2?", "See more of my projects at my GitHub.", "For inquiries, contact me via Discord.", "By the way, these are my only socials."], ["social-icons", true], -1, 0],
     ["/discord", "discordapp", ["My only Discord: <strong>jakubekgranie</strong>.<br>Please state the purpose of Your visit first; I might dismiss Your request otherwise."], ["discord", false], -1, 5000],
-    ["/projects", "repos", ["The best fruits of the loom.", "Handpicked stuff from my GitHub.", "Check out what I've been working on!"], ["project-button-support", true], -1, 0]
+    ["/projects", "repos", ["The best fruits of the loom.", "Handpicked stuff from my GitHub.", "Check out what I've been working on!"], ["project-button-support", true], -1, 0],
+    ["/projects/snet", "starweb", ["This website's very repository. Some content may not be accessible because of privacy and security concerns."], ["snet", true], -1, 0],
+    ["/projects/scmix", "cmixer-gui", ["A handy app made for personal purposes. Feel free to peruse!"], ["scmix", true], -1, 0]
 ];
 let lock = false, // used for lingering
     currentInterval = null, // for optimized timed recursion
@@ -107,8 +109,30 @@ function animatedDescriptions() {
         });
 }
 
+let projectsTimeout; // prevent user interruption
 function initialize() {
     document.getElementsByTagName("html")[0].style.fontSize = `${16 / devicePixelRatio}px`; // adjust sizes
+    
+    const repos = document.getElementById("repos");
+    document.getElementById("project-button-support").addEventListener("click", () => {
+        if(!projectsTimeout){
+            const repoList = document.querySelectorAll(".repo");
+            if(repos.classList.contains("disabled")){
+                repos.classList.remove("disabled", "transparent");
+                repoList.forEach((element, index) => {setTimeout(() => element.classList.add("slideUp"), index * 45)});
+            }
+            else{
+                projectsTimeout = true;
+                repos.classList.add("transparent");
+                setTimeout(() => {
+                    repoList.forEach(element => element.classList.remove("slideUp"));
+                    repos.classList.add("disabled");
+                    projectsTimeout = false;
+                }, 225);
+            }
+        }
+    });
+
     animatedName();
     animatedDescriptions();
 }

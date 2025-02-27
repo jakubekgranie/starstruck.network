@@ -301,7 +301,6 @@ code {
     width: 2px;
     height: 2.5rem;
     position: absolute;
-    z-index: 3;
     top: 50%;
     background-color: black;
     transform: scaleY(1) translateY(-50%);
@@ -328,11 +327,13 @@ code {
     width: 5.5rem;
     height: 2px;
     position: absolute;
-    z-index: 3;
     left: 50%;
     background-color: black;
     transform: scaleY(1) translateX(-50%);
     transition: 0.25s ease-in-out 0.115s;
+}
+.project-button::after, .project-button::before, #project-button-support::after, #project-button-support::before, .z-3{
+    z-index: 3;
 }
 #project-button-support::after{
     top: -2px;
@@ -361,6 +362,16 @@ code {
     background-image: linear-gradient(to bottom, rgb(14, 27, 37, 0.3) 0%, rgb(42, 69, 75, 0.3) 50%, rgb(41, 72, 97, 0.3) 100%);
     padding: 5rem 0;
     box-sizing: border-box;
+    transition: opacity 0.225s ease-in;
+}
+@keyframes slideUp {
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .repo{
     border: solid 3.5px;
@@ -369,11 +380,15 @@ code {
     background-color: rgba(20, 20, 20, 0.65);
     padding-bottom: 1.25rem;
     border-radius: 0.8rem;
+    transform: translateY(10rem);
 }
-.snet{
+.slideUp{
+    animation: slideUp 0.35s cubic-bezier(.34, .91 , 1, 1) forwards;
+}
+#snet{
     border-color: #CFE8C5;
 }
-.scmix{
+#scmix{
     border-color: #B18419;
 }
 .repo-banner{
@@ -398,4 +413,7 @@ code {
     font: 0.925rem Outfit;
     font-weight: 300;
     text-align: center;
+}
+.disabled{
+    display: none;
 }
